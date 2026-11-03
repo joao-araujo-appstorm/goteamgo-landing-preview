@@ -458,10 +458,10 @@
       <div class="container">
         <div class="rail">
           <div data-for="voce">
-          <div class="section-head tour-head">
+          <div class="section-head tour-head tour-head--center">
             <h2 class="h2" data-words>Do primeiro treino ao pódio.</h2>
           </div>
-          <div class="tour" data-tour>
+          <div class="tour tour--feats" data-tour>
             <nav class="tour__nav" aria-label="Partes do app">
               <div class="tour__sticky">
                 <ul class="tour__list">
@@ -476,9 +476,11 @@
             <div class="tour__chapters">
 
               <!-- Capítulo 1: desafio aberto (single-challenge.f7 + folha pago/grátis de enter-with-new-group.f7) e Pix (pagarme-payment.f7) -->
-              <article class="chapter" id="desafios" aria-labelledby="cap-v1">
+              <article class="chapter feat feat--teal" id="desafios" aria-labelledby="cap-v1" data-n="01">
                 <div class="chapter__head">
+                  <span class="feat__eyebrow"><i><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg></i>Desafios abertos</span>
                   <h3 class="h3" id="cap-v1" data-words>Escolha o desafio e entre do seu jeito. <span class="soft">Sozinho, com o código do grupo ou com um grupo novo.</span></h3>
+                  <ul class="feat__chips"><li>Grátis ou valendo prêmio</li><li>Pix ou cartão</li><li>Pódio dos pagantes</li></ul>
                 </div>
                 <div class="chapter__stage dots-bg">
                   <div class="duo" data-scene="challenge">
@@ -536,9 +538,11 @@
               </article>
 
               <!-- Capítulo: social. Visualizador de stories (home.f7:3161-3290) e post com a gaveta de comentários (modal_comments.f7) -->
-              <article class="chapter" id="social" aria-labelledby="cap-vs">
+              <article class="chapter feat feat--coral" id="social" aria-labelledby="cap-vs" data-n="02">
                 <div class="chapter__head">
-                  <h3 class="h3" id="cap-vs" data-words>O treino vira conversa. <span class="soft">Story, curtida, comentário e a marcação de quem treinou junto.</span></h3>
+                  <span class="feat__eyebrow"><i><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></i>Social</span>
+                  <h3 class="h3" id="cap-vs" data-words>O treino vira conversa. <span class="soft">A galera vê, curte e comenta.</span></h3>
+                  <ul class="feat__chips"><li>Stories</li><li>Comentários com @</li><li>Quem treinou junto</li></ul>
                 </div>
                 <div class="chapter__stage dots-bg">
                   <div class="duo" data-scene="social">
@@ -587,9 +591,11 @@
               </article>
 
               <!-- Capítulo: conquistas e níveis. Perfil (users-profile.f7) e Trilha de Evolução (timeline.f7) -->
-              <article class="chapter" id="conquistas" aria-labelledby="cap-vc">
+              <article class="chapter feat feat--violet" id="conquistas" aria-labelledby="cap-vc" data-n="03">
                 <div class="chapter__head">
+                  <span class="feat__eyebrow"><i><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></i>Conquistas e níveis</span>
                   <h3 class="h3" id="cap-vc" data-words>Medalha a cada marco, nível a cada ponto. <span class="soft">São 60 níveis em 6 ligas, de Iniciante a Maratonista Profissional.</span></h3>
+                  <ul class="feat__chips"><li>Medalhas</li><li>Submetas</li><li>Trilha de níveis</li></ul>
                 </div>
                 <div class="chapter__stage dots-bg">
                   <div class="stage-split x1-stage" data-scene="trophy">
@@ -644,9 +650,11 @@
               </article>
 
               <!-- Capítulo 2: duelo X1 (x1-single.f7) e o card do ranking de duelo (challenge-for-x1.f7) -->
-              <article class="chapter" id="x1" aria-labelledby="cap-v2">
+              <article class="chapter feat feat--amber" id="x1" aria-labelledby="cap-v2" data-n="04">
                 <div class="chapter__head">
-                  <h3 class="h3" id="cap-v2" data-words>Chame alguém pro X1. <span class="soft">Você escolhe a modalidade e o local, e os duelos sobem o seu nível.</span></h3>
+                  <span class="feat__eyebrow"><i><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg></i>Duelo X1</span>
+                  <h3 class="h3" id="cap-v2" data-words>Chame alguém pro X1. <span class="soft">Você escolhe a modalidade e o local.</span></h3>
+                  <ul class="feat__chips"><li>Nível de duelo</li><li>Medalha de quem vence</li><li>Os dois informam o resultado</li></ul>
                 </div>
                 <div class="chapter__stage dots-bg">
                   <div class="stage-split x1-stage" data-scene="duel">
@@ -704,9 +712,11 @@
               </article>
 
               <!-- Capítulo 3: torneio, aba Chaveamento (tournaments-single.f7) -->
-              <article class="chapter" id="torneio" aria-labelledby="cap-v3">
+              <article class="chapter feat feat--sky" id="torneio" aria-labelledby="cap-v3" data-n="05">
                 <div class="chapter__head">
+                  <span class="feat__eyebrow"><i><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg></i>Torneios</span>
                   <h3 class="h3" id="cap-v3" data-words>Torneio com chave até sair o campeão. <span class="soft">De 2 a 256 pessoas, aberto ou com senha.</span></h3>
+                  <ul class="feat__chips"><li>Individual ou em grupo</li><li>Confrontos e chaveamento</li><li>Pódio no fim</li></ul>
                 </div>
                 <div class="chapter__stage dots-bg">
                   <div class="device">
@@ -1370,10 +1380,10 @@
         </div>
         <nav class="footer__col" aria-labelledby="f-produto">
           <h2 id="f-produto">Produto</h2>
-          <ul data-for="voce"><li><a href="#jogo">Gamificação</a></li><li><a href="#desafios">Desafios abertos</a></li><li><a href="#social">Social</a></li><li><a href="#conquistas">Conquistas</a></li><li><a href="#x1">Duelo X1</a></li><li><a href="#torneio">Torneios</a></li><li><a href="#posts">Foto, Strava ou passos</a></li></ul>
+          <ul data-for="voce"><li><a href="#jogo">Gamificação</a></li><li><a href="#desafios">Desafios abertos</a></li><li><a href="#social">Social</a></li><li><a href="#x1">Duelo X1</a></li><li><a href="#torneio">Torneios</a></li></ul>
           <ul data-for="empresa"><li><a href="#ranking">Ranking por time</a></li><li><a href="#atividade">Atividade com prova</a></li><li><a href="#painel">Painel do RH</a></li><li><a href="#evento">Dia do evento</a></li></ul>
         </nav>
-        <nav class="footer__col" aria-labelledby="f-solucoes">
+        <nav class="footer__col" aria-labelledby="f-solucoes" data-for="empresa">
           <h2 id="f-solucoes">Soluções</h2>
           <ul><li><a href="https://goteamgo.com.br/gamificacao-corporativa/">Gamificação corporativa</a></li><li><a href="https://goteamgo.com.br/desafios-corporativos/">Desafios corporativos</a></li><li><a href="https://goteamgo.com.br/bem-estar-corporativo/">Bem-estar corporativo</a></li><li><a href="https://goteamgo.com.br/gamificacao-esg/">Gamificação ESG</a></li><li><a href="https://goteamgo.com.br/gamificacao-para-eventos/">Gamificação para eventos</a></li></ul>
         </nav>

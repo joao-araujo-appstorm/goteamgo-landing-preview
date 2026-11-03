@@ -2074,6 +2074,57 @@ html:not(.js) .gb-post { display: none; }
   .gb-mod em { grid-column: 2; margin-left: 0; font-size: 11.5px; line-height: 1.2; }
 }
 
+/* ---------- Tour da versão "Para você": capítulos em painéis coloridos, em zigue-zague ---------- */
+html:not([data-aud="empresa"]) #produto .rail { border-inline: 0; }
+.tour-head--center { max-width: none; padding-bottom: clamp(28px, 4vw, 44px); text-align: center; }
+.tour--feats { display: block; border-top: 0 !important; }
+.tour--feats .tour__nav { display: none; }
+.tour--feats .tour__chapters { display: grid; gap: clamp(16px, 2vw, 24px); border-left: 0; }
+.tour--feats .chapter {
+  position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); align-items: center;
+  gap: clamp(20px, 3vw, 40px); padding: clamp(28px, 4vw, 52px); overflow: hidden; border-radius: 36px; background: var(--feat-bg);
+}
+.tour--feats .chapter + .chapter { border-top: 0; }
+.tour--feats .chapter:nth-child(even) { grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.72fr); }
+.tour--feats .chapter:nth-child(even) .chapter__head { order: 2; }
+.tour--feats .chapter__head { max-width: none; padding: 0; }
+.tour--feats .chapter__stage { padding: 8px 0; overflow: visible; border-top: 0; background: none; }
+.tour--feats .h3 { font-size: clamp(1.625rem, 2.4vw, 2.25rem); line-height: 1.12; }
+.feat::before { content: attr(data-n); position: absolute; right: 28px; top: -14px; z-index: -1; font-family: var(--font-display); font-size: clamp(120px, 14vw, 200px); font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--feat-ink); opacity: 0.07; }
+.feat:nth-child(even)::before { right: auto; left: 28px; }
+.feat__eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 5px 14px 5px 5px; border-radius: 999px; background: #fff; color: var(--feat-ink); font-size: 0.8125rem; font-weight: 600; box-shadow: 0 1px 2px rgb(11 13 24 / 0.06), 0 0 0 1px rgb(11 13 24 / 0.04); }
+.feat__eyebrow i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--feat-ink); color: #fff; }
+.feat__eyebrow .i { width: 14px; height: 14px; }
+.feat__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.feat__chips li { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 999px; background: rgb(255 255 255 / 0.72); font-size: 0.875rem; font-weight: 500; color: var(--ink-2); box-shadow: inset 0 0 0 1px rgb(11 13 24 / 0.06); }
+.feat__chips li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--feat-ink); }
+.feat--teal { --feat-ink: #06777b; --feat-bg: radial-gradient(90% 120% at 100% 0%, #c9f4f6, #effcfc 55%, #f7fdfd); }
+.feat--coral { --feat-ink: #c03650; --feat-bg: radial-gradient(90% 120% at 0% 0%, #ffdcd8, #fff2f0 55%, #fff8f7); }
+.feat--violet { --feat-ink: #5b3fd0; --feat-bg: radial-gradient(90% 120% at 100% 0%, #e0d9ff, #f3f0ff 55%, #f9f8ff); }
+.feat--amber { --feat-ink: #8f5d00; --feat-bg: radial-gradient(90% 120% at 0% 0%, #ffe7b3, #fff6e2 55%, #fffbf2); }
+.feat--sky { --feat-ink: #2459b8; --feat-bg: radial-gradient(90% 120% at 100% 0%, #d2e5ff, #eef5ff 55%, #f7faff); }
+@media (max-width: 1180px) {
+  .tour--feats .chapter, .tour--feats .chapter:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .tour--feats .chapter:nth-child(even) .chapter__head { order: 0; }
+  .tour--feats .chapter__head { max-width: 640px; }
+}
+@media (max-width: 560px) {
+  .tour--feats .chapter { padding: 26px 16px 20px; border-radius: 28px; }
+  .feat::before { right: 14px; font-size: 104px; }
+  .feat:nth-child(even)::before { left: auto; right: 14px; }
+}
+
+/* passos da versão para você: número em destaque, cartão claro que sobe no hover e linha ligando os três */
+[data-for="voce"] .steps { position: relative; }
+[data-for="voce"] .step { position: relative; z-index: 1; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgb(5 26 43 / 0.06); transition: transform 0.3s var(--ease-out), box-shadow 0.3s; }
+[data-for="voce"] .step:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgb(10 197 204 / 0.4), 0 24px 50px rgb(10 197 204 / 0.14); }
+[data-for="voce"] .step__num { width: 44px; height: 44px; background: linear-gradient(160deg, #2de0e7, #0ac5cc); color: var(--navy); font-family: var(--font-display); font-size: 1.125rem; font-weight: 800; box-shadow: 0 10px 22px rgb(10 197 204 / 0.3); }
+@media (min-width: 961px) {
+  [data-for="voce"] .steps::before { content: ""; position: absolute; left: 14%; right: 14%; top: 46px; border-top: 2px dashed rgb(10 197 204 / 0.4); }
+  /* rodapé da versão para você: três colunas depois da marca */
+  html:not([data-aud="empresa"]) .footer__grid { grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); }
+}
+
 /* ---------- Movimento reduzido e impressão ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
