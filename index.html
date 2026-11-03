@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="pt-BR" data-direction="deep" data-hero="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>GoTeamGo · Desafios de bem-estar e ESG para empresas</title>
+  <meta name="description" content="Desafios entre times com pontos, ranking, medalhas e CO₂ evitado. O RH acompanha tudo no painel e o evento roda no mesmo app. Peça uma demonstração.">
+  <link rel="canonical" href="https://goteamgo.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="GoTeamGo">
+  <meta property="og:title" content="GoTeamGo · A empresa inteira se mexendo, com ranking e medalha">
+  <meta property="og:description" content="Desafios entre times com pontos, ranking, medalhas e CO₂ evitado. O RH acompanha tudo no painel. Peça uma demonstração.">
+  <meta property="og:url" content="https://joao-araujo-appstorm.github.io/goteamgo-landing-preview/">
+  <meta property="og:image" content="https://joao-araujo-appstorm.github.io/goteamgo-landing-preview/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/landing.css">
+  <script defer src="js/landing.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GoTeamGo",
+    "url": "https://goteamgo.com.br/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "downloadUrl": ["https://apps.apple.com/br/app/goteamgo/id6756112455", "https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa"],
+    "description": "Desafios entre times para empresas: atividades com prova, pontos por modalidade, ranking por grupo, medalhas, CO₂ evitado e relatório ESG. Fila com QR Code e sorteio ao vivo para eventos.",
+    "publisher": { "@type": "Organization", "name": "GoTeamGo", "email": "contato@goteamgo.com.br", "url": "https://goteamgo.com.br/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Precisa instalar alguma coisa?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O GoTeamGo abre no navegador do celular e pode ficar na tela inicial. Também tem app para iPhone e Android, e os avisos chegam por notificação ou e-mail." } },
+      { "@type": "Question", "name": "Como vocês evitam atividade falsa?", "acceptedAnswer": { "@type": "Answer", "text": "Cada desafio escolhe a prova: foto no local, foto tirada na hora, início e fim da atividade, Strava ou passos do Google Health. Os posts passam por aprovação manual, automática ou pela IA, e qualquer pessoa pode denunciar um post." } },
+      { "@type": "Question", "name": "E os dados dos colaboradores?", "acceptedAnswer": { "@type": "Answer", "text": "Cada empresa tem uma base de dados separada e pode limitar o cadastro aos e-mails da empresa. O Google Health só lê os passos, e no sorteio os nomes aparecem abreviados." } },
+      { "@type": "Question", "name": "Dá para mostrar o resultado para a diretoria?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O painel mostra participantes, pontos por modalidade, medalhas e CO₂ evitado, e o relatório gerencial ESG sai em PDF." } },
+      { "@type": "Question", "name": "Serve para times em várias cidades?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Tudo roda no celular, os grupos podem ser por filial e o ranking é o mesmo para todo mundo." } },
+      { "@type": "Question", "name": "Funciona em evento aberto ao público?", "acceptedAnswer": { "@type": "Answer", "text": "Funciona. A agenda tem fila ou horários marcados, cobra por Pix ou cartão quando precisa, e o sorteio pode ser para qualquer pessoa com o link." } },
+      { "@type": "Question", "name": "Quanto custa?", "acceptedAnswer": { "@type": "Answer", "text": "O valor sai na demonstração, de acordo com o formato da campanha. Peça uma demonstração para receber a proposta." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Sprite de ícones (traço 1.75, 24×24, desenho no estilo lucide que o app usa). Nunca use emoji como ícone. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="logo-mark" viewBox="0 0 32 32"><path d="M14 8.6a9.9 9.9 0 1 0 9.9 9.9H15" fill="none" stroke="currentColor" stroke-width="4.4"/><rect x="20.4" y="2.4" width="8.2" height="8.2" rx="2.8" fill="none" stroke="currentColor" stroke-width="3"/></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.3-5.5 6.5-5.5s5.9 2.1 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c1.9.7 3.2 2.4 3.5 5.2"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2C7.9 18.8 7 20.2 7 22M14 14.7V17c0 .6.5 1 1 1.2 1.1.6 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0z"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="m12 15-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9L19 9.7l-5.2 1.8L12 16.5l-1.8-5L5 9.7l5.2-1.8z"/><path d="M18.5 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M15 15h2v2M21 15v6h-4M13 3v4M13 11h4M3 12h4M11 11v2M13 19v2"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0zM20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0z"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.5" height="14" rx="1"/><rect x="14" y="5" width="3.5" height="14" rx="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></symbol>
+  </svg>
+
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="brand" href="#topo" aria-label="GoTeamGo, início">
+        <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>GoTeamGo
+      </a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#produto">Como funciona</a>
+        <a href="#evento">Eventos</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#perguntas">Perguntas</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--secondary btn--sm nav__login" href="https://app.goteamgo.com.br/">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav"><span class="lbl-long">Pedir demonstração</span><span class="lbl-short">Demonstração</span><span class="lbl-tiny">Agendar</span></a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu" data-nav-toggle>
+          <span class="burger" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="menu-mobile" hidden>
+      <nav class="m-menu" aria-label="Menu">
+        <a class="m-link" href="#produto" style="--i:0"><span>Como funciona</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#evento" style="--i:1"><span>Eventos</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#clientes" style="--i:2"><span>Clientes</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#perguntas" style="--i:3"><span>Perguntas</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </nav>
+      <div class="m-foot" style="--i:4">
+        <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav-mobile">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="https://app.goteamgo.com.br/">Entrar</a>
+        <p class="m-stores">Baixe o app: <a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ================= HERÓI ================= -->
+    <section class="hero" id="topo" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__aurora"><i></i><i></i><i></i></div><div class="hero__noise"></div><canvas class="hero__grain" data-grain></canvas></div>
+      <div class="container hero__inner">
+        <h1 class="display hero__title" id="hero-title"><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">empresa</span> <span class="w" style="--i:2">inteira</span> <span class="w" style="--i:3"><span class="rotator" data-words="correndo,|pedalando,|caminhando,|nadando,|treinando,|se mexendo,"><span class="rotator__word">se mexendo,</span></span></span> <span class="w" style="--i:4">com</span> <span class="w" style="--i:5">ranking</span> <span class="w" style="--i:6">e</span> <span class="w" style="--i:7">medalha.</span></h1>
+        <p class="lead hero__lead">Cada treino postado vira ponto para o time. O RH acompanha tudo no painel.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-hero">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--secondary btn--lg" href="#produto">Ver o app</a>
+        </div>
+      </div>
+      <button class="still-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" data-still hidden><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button>
+
+      <div class="container hero__stage">
+        <div class="phones">
+          <!-- Ranking do app (src/pages/ranking/ranking.f7) -->
+          <div class="phones__side phones__side--l">
+            <div class="device">
+              <div class="app app--phone" role="img" aria-label="Tela de Ranking do app GoTeamGo: pódio com Logística em 1º, Financeiro em 2º e Comercial em 3º, e a posição do seu grupo.">
+                <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                <div class="ph-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title"><small>30 dias em movimento</small>Ranking</span><svg class="i"><use href="#i-search"/></svg></div>
+                <div class="ph-body">
+                  <div class="ph-seg"><span class="is-active">Grupos</span><span>Pessoal</span><span>Filtro</span></div>
+                  <div class="podium">
+                    <div class="podium__item podium__item--2"><span class="podium__av">FI</span><b>Financeiro</b><span class="podium__col"><i>2º</i><strong>4.020</strong><small>pontos</small></span></div>
+                    <div class="podium__item podium__item--1"><span class="podium__av">LO</span><b>Logística</b><span class="podium__col"><i>1º</i><strong>4.180</strong><small>pontos</small></span></div>
+                    <div class="podium__item podium__item--3"><span class="podium__av">CO</span><b>Comercial</b><span class="podium__col"><i>3º</i><strong>3.760</strong><small>pontos</small></span></div>
+                  </div>
+                  <div class="rk-me">Seu grupo está com <b>3.427 pontos</b> e faltam <b>18%</b> para alcançar o topo</div>
+                  <ol class="rk-list">
+                    <li class="rk-row is-me"><span class="rk-pos">4º</span><span class="av av--5">TI</span><span class="rk-name">TI<small>Seu grupo</small></span><span class="rk-pts">3.427</span></li>
+                    <li class="rk-row"><span class="rk-pos">5º</span><span class="av av--2">AT</span><span class="rk-name">Atendimento<small>61 pessoas</small></span><span class="rk-pts">3.410</span></li>
+                  </ol>
+                </div>
+                <div class="ph-tabbar" aria-hidden="true">
+                  <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span class="is-active"><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feed do app (src/pages/home.f7 + components/layout/header.f7) -->
+          <div class="phones__main">
+            <div class="device device--beam">
+              <div class="app app--phone" data-scene="feed" data-toast-time="agora" role="img" aria-label="Demonstração do Feed do app GoTeamGo: stories do time, um post de corrida de 5,72 km com pontos do grupo, curtidas chegando e posts novos entrando no topo.">
+                <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                <div class="fd-head"><span class="fd-me">CR</span><span class="fd-title"><small>GoTeamGo</small>Feed</span><span class="fd-acts"><svg class="i"><use href="#i-search"/></svg><span class="fd-bell"><svg class="i"><use href="#i-bell"/></svg><i>3</i></span></span></div>
+                <div class="ph-body fd-body">
+                  <div class="fd-stories">
+                    <span class="fd-story"><i>CR</i><small>Camila</small></span>
+                    <span class="fd-story"><i class="av--5">RN</i><small>Rafael</small></span>
+                    <span class="fd-story"><i class="av--2">BT</i><small>Bianca</small></span>
+                    <span class="fd-story is-seen"><i class="av--3">DM</i><small>Diego</small></span>
+                    <span class="fd-story is-seen"><i class="av--6">LP</i><small>Larissa</small></span>
+                  </div>
+                  <div class="fd-list" data-rows data-max="3">
+                    <article class="fd-post">
+                      <header class="fd-post__head"><span class="av av--2">BC</span><span><b>Bruno Cardoso</b><small>há 8 min · Parque da Cidade</small></span><svg class="i"><use href="#i-dots"/></svg></header>
+                      <div class="fd-post__cat">#Corrida</div>
+                      <div class="fd-media"><picture><source srcset="img/post-corrida.avif" type="image/avif"><img src="img/post-corrida.webp" width="520" height="400" alt="" decoding="async"></picture><span class="fd-ind"><svg class="i"><use href="#i-award"/></svg></span></div>
+                      <div class="fd-acts2"><span class="fd-like" data-like><svg class="i"><use href="#i-heart"/></svg><b>23</b></span><span><svg class="i"><use href="#i-message"/></svg><b>4</b></span></div>
+                      <div class="fd-points"><div>Pontos<b>57</b></div><div>Total<b>612</b></div><div>Total do grupo<b>4.180</b></div></div>
+                    </article>
+                    <article class="fd-post">
+                      <header class="fd-post__head"><span class="av av--4">JF</span><span><b>Juliana Freitas</b><small>há 26 min</small></span><svg class="i"><use href="#i-dots"/></svg></header>
+                      <div class="fd-post__cat">#Ciclismo ao ar livre</div>
+                      <div class="fd-media fd-strava">
+                        <svg class="fd-route" viewBox="0 0 200 80" aria-hidden="true"><path pathLength="1" d="M8 64C30 60 34 30 58 30s30 26 52 22 20-34 44-38 28 18 38 28"/></svg>
+                        <span class="fd-strava__tag">Dados importados do Strava</span>
+                        <span class="fd-strava__grid"><span><small>Distância</small>22,4 km</span><span><small>Tempo</small>58 min</span><span><small>Elevação</small>140 m</span><span><small>Ritmo</small>2'35" /km</span></span>
+                      </div>
+                      <div class="fd-acts2"><span class="fd-like" data-like><svg class="i"><use href="#i-heart"/></svg><b>18</b></span><span><svg class="i"><use href="#i-message"/></svg><b>2</b></span></div>
+                      <div class="fd-points"><div>Pontos<b>88</b></div><div>Total<b>540</b></div><div>Total do grupo<b>3.760</b></div></div>
+                    </article>
+                  </div>
+                  <template data-queue>
+                    <article class="fd-post">
+                      <header class="fd-post__head"><span class="av av--3">DM</span><span><b>Diego Martins</b><small>agora</small></span><svg class="i"><use href="#i-dots"/></svg></header>
+                      <div class="fd-post__cat">#Musculação</div>
+                      <div class="fd-media"><picture><source srcset="img/post-academia.avif" type="image/avif"><img src="img/post-academia.webp" width="520" height="400" alt="" decoding="async"></picture><span class="fd-dots"><i class="is-on"></i><i></i></span></div>
+                      <div class="fd-acts2"><span class="fd-like" data-like><svg class="i"><use href="#i-heart"/></svg><b>0</b></span><span><svg class="i"><use href="#i-message"/></svg><b>0</b></span></div>
+                      <div class="fd-points"><div>Pontos<b>38</b></div><div>Total<b>371</b></div><div>Total do grupo<b>3.465</b></div></div>
+                    </article>
+                    <article class="fd-post">
+                      <header class="fd-post__head"><span class="av av--6">LP</span><span><b>Larissa Prado</b><small>agora</small></span><svg class="i"><use href="#i-dots"/></svg></header>
+                      <div class="fd-post__cat">#Musculação</div>
+                      <div class="fd-media"><picture><source srcset="img/post-academia-fim.avif" type="image/avif"><img src="img/post-academia-fim.webp" width="520" height="400" alt="" decoding="async"></picture><span class="fd-ind"><svg class="i"><use href="#i-award"/></svg></span></div>
+                      <div class="fd-acts2"><span class="fd-like" data-like><svg class="i"><use href="#i-heart"/></svg><b>0</b></span><span><svg class="i"><use href="#i-message"/></svg><b>0</b></span></div>
+                      <div class="fd-points"><div>Pontos<b>40</b></div><div>Total<b>455</b></div><div>Total do grupo<b>3.450</b></div></div>
+                    </article>
+                  </template>
+                </div>
+                <div class="ph-tabbar" aria-hidden="true">
+                  <span class="is-active"><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard do app (src/pages/dashboard.f7) -->
+          <div class="phones__side phones__side--r">
+            <div class="device">
+              <div class="app app--phone" role="img" aria-label="Tela inicial Dashboard do app GoTeamGo: próxima ação no desafio 30 dias em movimento com 68% de progresso, botão Registrar atividade e nível 7 com 1.240 XP.">
+                <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                <div class="ph-body dh">
+                  <div class="dh-head"><span>Quinta, 30 de outubro</span><b>Dashboard</b><svg class="i"><use href="#i-menu"/></svg></div>
+                  <div class="dh-hello"><span class="dh-hello__av">CR</span><span><small>Bom ter você aqui</small><b>Olá, Camila</b></span><svg class="i"><use href="#i-back"/></svg></div>
+                  <div class="dh-card">
+                    <label>Próxima ação</label>
+                    <div class="dh-ch"><span>30</span><span><b>30 dias em movimento</b><small>Faltam 12 dias · Grupo TI</small></span></div>
+                    <div class="dh-plabel"><span>Seu progresso</span><b>68%</b></div>
+                    <div class="dh-bar"><i style="--p:.68"></i></div>
+                    <span class="dh-cta">Registrar atividade<svg class="i"><use href="#i-arrow"/></svg></span>
+                  </div>
+                  <div class="dh-card">
+                    <label>Evolução</label>
+                    <b class="dh-h2">Nível e XP</b>
+                    <div class="dh-xp"><strong><small>Nível</small>7</strong><span><b>1.240 XP</b><small>(160 para o próximo nível)</small></span><em>89%</em></div>
+                    <div class="dh-bar"><i style="--p:.89"></i></div>
+                  </div>
+                  <div class="dh-card">
+                    <label>Agora</label>
+                    <b class="dh-h2">Seu ritmo atual</b>
+                    <div class="dh-stats"><div><b>2</b><span>desafios ativos</span></div><div><b>1</b><span>disponíveis hoje</span></div><div><b>1.240</b><span>XP</span></div></div>
+                  </div>
+                </div>
+                <div class="ph-tabbar" aria-hidden="true">
+                  <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span class="is-active"><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= CLIENTES (logos enviados e autorizados pelo João em 30/10/2026; ECBR = Escola Cristã Batista) ================= -->
+    <section class="section section--flush" id="clientes" aria-labelledby="logos-title">
+      <div class="container">
+        <div class="rail rail--logos" data-reveal>
+          <h2 class="logos-title" id="logos-title">Empresas que já fizeram desafios no GoTeamGo</h2>
+          <ul class="logos logos--3">
+            <li class="logos__cell"><img class="logo-img logo-img--tall" src="img/logo-daiichi-sankyo.webp" width="122" height="120" alt="Daiichi Sankyo" loading="lazy" decoding="async"></li>
+            <li class="logos__cell"><img class="logo-img" src="img/logo-jovem-pan.webp" width="179" height="96" alt="Jovem Pan" loading="lazy" decoding="async"></li>
+            <li class="logos__cell"><img class="logo-img" src="img/logo-ecbr.webp" width="219" height="96" alt="Escola Cristã Batista (ECBR)" loading="lazy" decoding="async"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= POSTS (rastro de fotos no estilo "Image Trail"; fotos de exemplo do próprio app) ================= -->
+    <section class="trail" id="posts" aria-labelledby="trail-title" data-trail>
+      <div class="trail__words" aria-hidden="true">
+        <div class="trail__row"><span>Corrida · Ciclismo · Caminhada · Musculação · Natação · Yoga · </span></div>
+        <div class="trail__row trail__row--rev"><span>Passos · Ranking · Medalhas · Pontos · Times · Desafios · </span></div>
+        <div class="trail__row"><span>Corrida · Ciclismo · Caminhada · Musculação · Natação · Yoga · </span></div>
+      </div>
+      <div class="trail__stage" aria-hidden="true"></div>
+      <div class="container trail__inner">
+        <h2 class="h2 trail__title" id="trail-title" data-words>Cada post vira ponto. <span class="soft">Foto, Strava ou passos.</span></h2>
+        <p class="trail__hint" aria-hidden="true"><svg class="i"><use href="#i-sparkle"/></svg>Passe o mouse por aqui</p>
+      </div>
+      <template data-trail-items>
+        <figure class="trail-item"><img src="img/trail-corrida.webp" width="360" height="450" alt="" decoding="async"></figure>
+        <div class="trail-item trail-item--card"><span class="tag tag--ai">Aprovado pela IA</span><b>Corrida · 5,72 km</b><small>+57 pontos para a Logística</small></div>
+        <figure class="trail-item"><img src="img/trail-academia.webp" width="360" height="450" alt="" decoding="async"></figure>
+        <div class="trail-item trail-item--card"><span class="ti-medal"><svg class="i"><use href="#i-award"/></svg></span><b>10 km na semana</b><small>Parabéns, você conquistou uma medalha</small></div>
+        <figure class="trail-item"><img src="img/trail-camiseta.webp" width="360" height="450" alt="" decoding="async"></figure>
+        <div class="trail-item trail-item--card"><small class="ti-kicker">Dados importados do Strava</small><span class="ti-grid"><span><small>Distância</small>22,4 km</span><span><small>Tempo</small>58 min</span></span></div>
+        <figure class="trail-item"><img src="img/trail-parque.webp" width="360" height="450" alt="" decoding="async"></figure>
+        <div class="trail-item trail-item--card"><span class="ti-up"><svg class="i"><use href="#i-chart"/></svg></span><b>TI subiu para 4º</b><small>Ranking por grupo</small></div>
+        <figure class="trail-item"><img src="img/trail-academia-2.webp" width="360" height="450" alt="" decoding="async"></figure>
+        <figure class="trail-item"><img src="img/trail-palco.webp" width="360" height="450" alt="" decoding="async"></figure>
+      </template>
+    </section>
+
+    <!-- ================= TOUR DO PRODUTO ================= -->
+    <section class="section section--flush" id="produto" aria-labelledby="tour-title">
+      <div class="container">
+        <div class="rail">
+          <div class="section-head tour-head">
+            <h2 class="h2" id="tour-title" data-words>Do primeiro post ao relatório da diretoria.</h2>
+          </div>
+          <div class="tour" data-tour>
+            <nav class="tour__nav" aria-label="Partes do produto">
+              <div class="tour__sticky">
+                <ul class="tour__list">
+                  <li><a class="tour__link" href="#ranking" data-tour-link>Ranking por time</a></li>
+                  <li><a class="tour__link" href="#atividade" data-tour-link>Atividade com prova</a></li>
+                  <li><a class="tour__link" href="#painel" data-tour-link>Painel do RH</a></li>
+                  <li><a class="tour__link" href="#evento" data-tour-link>Dia do evento</a></li>
+                </ul>
+              </div>
+            </nav>
+            <div class="tour__chapters">
+
+              <!-- Capítulo 1: Ranking (app, src/pages/ranking/ranking.f7) -->
+              <article class="chapter" id="ranking" aria-labelledby="cap-1">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-1" data-words>Time puxa time. <span class="soft">O ranking muda a cada atividade.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="stage-split">
+                    <div class="device">
+                      <div class="app app--phone" data-scene="ranking" data-toast-time="agora" role="img" aria-label="Demonstração do ranking no celular: o grupo TI recebe 72 pontos de um post de ciclismo e passa o grupo Atendimento, indo do 5º para o 4º lugar.">
+                        <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="ph-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title"><small>30 dias em movimento</small>Ranking</span><svg class="i"><use href="#i-search"/></svg></div>
+                        <div class="ph-body">
+                          <div class="ph-seg"><span class="is-active">Grupos</span><span>Pessoal</span><span>Filtro</span></div>
+                          <div class="podium">
+                            <div class="podium__item podium__item--2"><span class="podium__av">FI</span><b>Financeiro</b><span class="podium__col"><i>2º</i><strong>4.020</strong><small>pontos</small></span></div>
+                            <div class="podium__item podium__item--1"><span class="podium__av">LO</span><b>Logística</b><span class="podium__col"><i>1º</i><strong>4.180</strong><small>pontos</small></span></div>
+                            <div class="podium__item podium__item--3"><span class="podium__av">CO</span><b>Comercial</b><span class="podium__col"><i>3º</i><strong>3.760</strong><small>pontos</small></span></div>
+                          </div>
+                          <div class="rk-me">Seu grupo está com <b><span data-pts-mirror>3.427</span> pontos</b> e faltam <b><span data-before="20">18</span>%</b> para alcançar o topo</div>
+                          <ol class="rk-list" data-rows>
+                            <li class="rk-row is-me" data-climb data-toast-title="Diego Martins" data-toast="postou Ciclismo ao ar livre. +72 pontos para TI." data-toast-tone="info"><span class="rk-pos" data-before="5º">4º</span><span class="av av--5">TI</span><span class="rk-name">TI<small>Seu grupo · 52 pessoas</small></span><span class="rk-pts" data-count="3427" data-from="3355">3.427</span></li>
+                            <li class="rk-row"><span class="rk-pos" data-before="4º">5º</span><span class="av av--2">AT</span><span class="rk-name">Atendimento<small>61 pessoas</small></span><span class="rk-pts">3.410</span></li>
+                            <li class="rk-row"><span class="rk-pos">6º</span><span class="av av--3">JU</span><span class="rk-name">Jurídico<small>24 pessoas</small></span><span class="rk-pts">2.980</span></li>
+                            <li class="rk-row"><span class="rk-pos">7º</span><span class="av av--6">MK</span><span class="rk-name">Marketing<small>33 pessoas</small></span><span class="rk-pts">2.640</span></li>
+                            <li class="rk-row"><span class="rk-pos">8º</span><span class="av av--4">RH</span><span class="rk-name">Pessoas e Cultura<small>19 pessoas</small></span><span class="rk-pts">2.105</span></li>
+                          </ol>
+                        </div>
+                        <div class="ph-tabbar" aria-hidden="true">
+                          <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                          <span><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                          <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                          <span class="is-active"><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                          <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="app app--tv col-opt" style="--app-h: 420px" role="img" aria-label="Tela Público do admin em modo telão: participantes, times, quilômetros e CO2 evitado do desafio, com os três primeiros participantes.">
+                      <div class="tv-head"><span class="tv-clock">11:41</span><b>Desafio 30 dias em movimento</b><small>Atualizado às 11:41</small></div>
+                      <div class="tv-kpis">
+                        <div><svg class="i"><use href="#i-users"/></svg><small>Participantes</small><strong>412</strong></div>
+                        <div><svg class="i"><use href="#i-layers"/></svg><small>Times envolvidos</small><strong>8</strong></div>
+                        <div><svg class="i"><use href="#i-activity"/></svg><small>Km percorridos</small><strong>7.930</strong></div>
+                        <div><svg class="i"><use href="#i-leaf"/></svg><small>CO<sub>2</sub> evitado</small><strong>1.284 kg</strong></div>
+                      </div>
+                      <div class="tv-top">
+                        <div class="tv-top__title"><svg class="i"><use href="#i-trophy"/></svg>Top participantes</div>
+                        <div class="tv-row"><i>1º</i><span class="av av--4">MV</span><b>Marcos Vieira</b><em>412 pts</em></div>
+                        <div class="tv-row"><i>2º</i><span class="av av--2">JF</span><b>Juliana Freitas</b><em>398 pts</em></div>
+                        <div class="tv-row"><i>3º</i><span class="av av--3">DM</span><b>Diego Martins</b><em>371 pts</em></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Capítulo 2: Nova atividade (app src/pages/challenges/new-post.f7) + Central de moderação (admin pages/feed/index.f7) -->
+              <article class="chapter" id="atividade" aria-labelledby="cap-2">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-2" data-words>Atividade com prova. <span class="soft">A IA confere antes de somar.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="post-duo" data-scene="post">
+                    <div class="device">
+                      <div class="app app--phone" role="img" aria-label="Demonstração da tela Nova atividade do app: a pessoa adiciona a foto, usa a corrida de 5,72 km do Strava, escolhe Corrida, toca em Postar Atividade e recebe a medalha 10 km na semana.">
+                        <div class="ph-status" aria-hidden="true"><span>7:12</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="ph-head np-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title">Detalhes do Desafio</span><span class="np-gap"></span></div>
+                        <div class="ph-body np">
+                          <div class="np-ch"><small>Desafio em andamento</small><b>30 dias em movimento</b></div>
+                          <div class="np-card">
+                            <div class="np-tabs">
+                              <span class="is-done"><svg class="i"><use href="#i-users"/></svg>Sua foto<em>Obrigatório</em></span>
+                              <span class="is-active"><svg class="i"><use href="#i-camera"/></svg>Sua atividade<em>Opcional</em></span>
+                              <span><svg class="i"><use href="#i-plus"/></svg>Story<em>Opcional</em></span>
+                            </div>
+                            <div class="np-img np-img--empty" data-empty="photo" hidden><svg class="i"><use href="#i-camera"/></svg>Toque aqui para adicionar sua imagem</div>
+                            <div class="np-img" data-fill="photo"><picture><source srcset="img/post-corrida.avif" type="image/avif"><img src="img/post-corrida.webp" width="520" height="400" alt="" loading="lazy" decoding="async"></picture></div>
+                            <div class="np-field"><span>Atividade *</span><b class="np-select" data-empty="act" hidden>Selecione a Atividade<svg class="i"><use href="#i-chevron"/></svg></b><b class="np-select is-filled" data-fill="act">Corrida<svg class="i"><use href="#i-chevron"/></svg></b></div>
+                            <div class="np-strava" data-empty="strava" hidden><svg class="i"><use href="#i-activity"/></svg>Usar atividade do Strava</div>
+                            <div class="np-strava is-filled" data-fill="strava"><svg class="i"><use href="#i-activity"/></svg><span><b>Corrida · 5,72 km · 35 min</b><small>Dados importados do Strava</small></span><svg class="i np-x"><use href="#i-close"/></svg></div>
+                            <div class="np-field"><span>Pontos *</span><b class="np-points" data-empty="pts" hidden>0</b><b class="np-points" data-fill="pts">57</b></div>
+                          </div>
+                          <span class="np-btn" data-post-btn>Postar Atividade</span>
+                          <div class="np-sheet" data-sheet>
+                            <span class="np-sheet__medal"><svg class="i"><use href="#i-award"/></svg></span>
+                            <b>Parabéns, você conquistou uma medalha!</b>
+                            <small>Você conquistou a(s) medalha(s): 10 km na semana</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="app app--mod col-opt" style="--app-h: 330px" role="img" aria-label="Central de moderação do admin: o post de corrida do Bruno passa de Processando para Aprovado pela IA.">
+                      <div class="app__bar"><span class="dots"><i></i><i></i><i></i></span><span class="app__crumb">Postagens / <b>Central de moderação</b></span></div>
+                      <div class="mod-tabs"><span class="is-active">Pendentes</span><span>Aprovados</span><span>Reprovados</span></div>
+                      <div class="mod-list">
+                        <div class="mod-row is-new"><span class="av av--2">BC</span><span class="mod-row__who"><b>Bruno Cardoso</b><small>Corrida · 5,72 km · 57 pts</small></span><span class="tag tag--ai" data-ai>Aprovado pela IA</span></div>
+                        <div class="mod-row"><span class="av av--6">LP</span><span class="mod-row__who"><b>Larissa Prado</b><small>Musculação · 50 min · 30 pts</small></span><span class="tag tag--ai">Aprovado pela IA</span></div>
+                        <div class="mod-row"><span class="av av--4">BT</span><span class="mod-row__who"><b>Bianca Torres</b><small>Caminhada · 6,1 km · 61 pts</small></span><span class="tag tag--warn">Revisão necessária</span></div>
+                        <div class="mod-row"><span class="av av--5">PL</span><span class="mod-row__who"><b>Patrícia Lemos</b><small>Natação · 1,2 km · 36 pts</small></span><span class="tag tag--ok">Aprovado</span></div>
+                      </div>
+                    </div>
+                    <div class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5 19 11l-6.3 1.7L9.6 19z" fill="#051a2b" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Capítulo 3: Painel do admin (admin pages/dashboard/dashboard.f7) -->
+              <article class="chapter" id="painel" aria-labelledby="cap-3">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-3" data-words>CO<sub>2</sub> evitado no painel do RH. <span class="soft">E o relatório ESG em PDF.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="app app--admin" style="--app-h: 452px" role="img" aria-label="Demonstração do Painel de Desafio ESG e Desempenho do admin: participantes, pontos, CO2 evitado, medalhas, submetas e valor estimado do carbono subindo, os 3 melhores grupos e os pontos por modalidade.">
+                    <div class="app__bar"><span class="dots"><i></i><i></i><i></i></span><span class="app__crumb"><span class="col-opt">Grupo Horizonte /</span><b>Painel</b></span><span class="app__bar-actions col-opt"><span class="chip"><svg class="i"><use href="#i-download"/></svg>PDF / imprimir</span></span></div>
+                    <div class="adm" data-scene="esg">
+                      <div class="adm__head">
+                        <div>
+                          <p class="adm__eyebrow">Painel administrativo</p>
+                          <p class="adm__title"><span class="adm__ico"><svg class="i"><use href="#i-chart"/></svg></span>Painel de Desafio - ESG e Desempenho</p>
+                        </div>
+                        <span class="adm__status col-opt">Dados da campanha</span>
+                      </div>
+                      <div class="adm__kpis">
+                        <div class="adm-kpi"><span class="adm-kpi__ico"><svg class="i"><use href="#i-users"/></svg></span><span><small>Total de participantes</small><b data-count="412">412</b><em>Pessoas cadastradas</em></span></div>
+                        <div class="adm-kpi"><span class="adm-kpi__ico"><svg class="i"><use href="#i-sparkle"/></svg></span><span><small>Total de pontos</small><b data-count="38920" data-suffix=" pontos">38.920 pontos</b><em>Pontuação nos filtros selecionados</em></span></div>
+                        <div class="adm-kpi"><span class="adm-kpi__ico"><svg class="i"><use href="#i-leaf"/></svg></span><span><small>CO<sub>2</sub> evitado</small><b data-count="1284" data-suffix=" kg">1.284 kg</b><em>Impacto ambiental positivo</em></span></div>
+                        <div class="adm-kpi col-opt"><span class="adm-kpi__ico"><svg class="i"><use href="#i-award"/></svg></span><span><small>Medalhas conquistadas</small><b data-count="236">236</b><em>Conquistas concluídas</em></span></div>
+                        <div class="adm-kpi col-opt"><span class="adm-kpi__ico"><svg class="i"><use href="#i-trophy"/></svg></span><span><small>Submetas conquistadas</small><b data-count="158">158</b><em>Objetivos intermediários concluídos</em></span></div>
+                        <div class="adm-kpi col-opt"><span class="adm-kpi__ico"><svg class="i"><use href="#i-wallet"/></svg></span><span><small>Valor estimado do carbono</small><b data-count="160.5" data-format="currency" data-decimals="2">R$&nbsp;160,50</b><em>Valor financeiro estimado</em></span></div>
+                      </div>
+                      <div class="adm__grid">
+                        <div class="adm-card">
+                          <p class="adm-card__title"><svg class="i"><use href="#i-trophy"/></svg>Os 3 melhores grupos</p>
+                          <ol class="adm-rank">
+                            <li><i>1</i><span>Logística<em><u style="--p:1"></u></em></span><b>4.180</b></li>
+                            <li><i>2</i><span>Financeiro<em><u style="--p:.96"></u></em></span><b>4.020</b></li>
+                            <li><i>3</i><span>Comercial<em><u style="--p:.9"></u></em></span><b>3.760</b></li>
+                          </ol>
+                        </div>
+                        <div class="adm-card adm-card--donut">
+                          <p class="adm-card__title"><svg class="i"><use href="#i-chart"/></svg>Pontos por modalidade</p>
+                          <div class="donut">
+                            <svg viewBox="0 0 42 42" aria-hidden="true">
+                              <circle class="donut__track" cx="21" cy="21" r="15.915"/>
+                              <circle class="donut__seg" style="--v:38;--o:0;--c:#0ac5cc" cx="21" cy="21" r="15.915"/>
+                              <circle class="donut__seg" style="--v:27;--o:38;--c:#0b3558" cx="21" cy="21" r="15.915"/>
+                              <circle class="donut__seg" style="--v:19;--o:65;--c:#f4b400" cx="21" cy="21" r="15.915"/>
+                              <circle class="donut__seg" style="--v:16;--o:84;--c:#9fe9ec" cx="21" cy="21" r="15.915"/>
+                            </svg>
+                            <ul class="donut__legend">
+                              <li style="--c:#0ac5cc">Corrida<b>38%</b></li>
+                              <li style="--c:#0b3558">Caminhada<b>27%</b></li>
+                              <li style="--c:#f4b400">Ciclismo<b>19%</b></li>
+                              <li style="--c:#9fe9ec">Musculação<b>16%</b></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Capítulo 4: Dia do evento (app agenda-painel.f7 + agenda-participar.f7) -->
+              <article class="chapter" id="evento" aria-labelledby="cap-4">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-4" data-words>Fila do evento sem papel. <span class="soft">Escaneou o QR Code, entrou na fila.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="duo" data-scene="queuecall">
+                    <div class="device">
+                      <div class="app app--phone" role="img" aria-label="Demonstração do painel da fila no celular de quem organiza: 14 pessoas na fila, o botão Chamar chama a Juliana e ela passa para Em atendimento.">
+                        <div class="ph-status" aria-hidden="true"><span>10:52</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="ph-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title"><small class="is-live">Ao vivo</small>Avaliação física</span><svg class="i"><use href="#i-sliders"/></svg></div>
+                        <div class="ph-body">
+                          <div class="qp-next">
+                            <div class="qp-stats">
+                              <span><strong data-before="14">13</strong><small>Na fila</small></span>
+                              <span><strong data-before="2">3</strong><small>Atendendo</small></span>
+                              <span><strong>37</strong><small>Atendidos</small></span>
+                            </div>
+                            <div class="qp-who"><span>Próxima pessoa</span><strong data-before="Juliana M.">Pedro A.</strong><small data-before="Entrou pelo QR Code · esperando há 12 min">Entrou pelo link · esperando há 9 min</small></div>
+                            <div class="qp-call"><i></i><i></i><span class="qp-call__btn" data-call><svg class="i"><use href="#i-megaphone"/></svg>Chamar</span></div>
+                            <div class="qp-note">A pessoa recebe o aviso na hora</div>
+                          </div>
+                          <div class="qp-serving-head"><b>Em atendimento</b><span class="qp-badge" data-before="2">3</span></div>
+                          <div class="qp-serving" data-arrive><span class="qp-av">JM</span><span class="qp-serving__who"><b>Juliana Moreira</b><small>Chamada agora</small></span><span class="qp-x"><svg class="i"><use href="#i-close"/></svg></span><span class="qp-done"><svg class="i"><use href="#i-check"/></svg></span></div>
+                          <div class="qp-serving"><span class="qp-av">LS</span><span class="qp-serving__who"><b>Lucas Souza</b><small>Desde 10:44</small></span><span class="qp-x"><svg class="i"><use href="#i-close"/></svg></span><span class="qp-done"><svg class="i"><use href="#i-check"/></svg></span></div>
+                          <div class="qp-serving"><span class="qp-av">RC</span><span class="qp-serving__who"><b>Renata Campos</b><small>Desde 10:47</small></span><span class="qp-x"><svg class="i"><use href="#i-close"/></svg></span><span class="qp-done"><svg class="i"><use href="#i-check"/></svg></span></div>
+                        </div>
+                        <div class="ph-tools" aria-hidden="true">
+                          <span class="is-active"><svg class="i"><use href="#i-grid"/></svg>Painel</span>
+                          <span><svg class="i"><use href="#i-users"/></svg>Fila</span>
+                          <span><svg class="i"><use href="#i-qr"/></svg>Divulgar</span>
+                          <span><svg class="i"><use href="#i-sliders"/></svg>Ajustes</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="device device--b">
+                      <div class="app app--phone" role="img" aria-label="Demonstração do celular de quem espera na fila: a tela muda de Você é o próximo para É a sua vez, com o local do atendimento.">
+                        <div class="ph-status" aria-hidden="true"><span>10:52</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="ph-push" data-push><span class="ph-push__logo"><svg><use href="#logo-mark"/></svg></span><span><b>GoTeamGo</b> · agora<br>É a sua vez. Dirija-se ao atendimento agora.</span></div>
+                        <div class="ph-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title"><small>Na fila</small>Avaliação física</span><svg class="i"><use href="#i-bell"/></svg></div>
+                        <div class="ph-body pq" data-state="after">
+                          <div class="pq-card" data-show="before">
+                            <span class="pq-kicker">Sua posição</span>
+                            <strong class="pq-pos">1º</strong>
+                            <b>Você é o próximo</b>
+                            <small>O app avisa quando for a sua vez</small>
+                          </div>
+                          <div class="pq-card pq-card--turn" data-show="after">
+                            <span class="pq-ring"><svg class="i"><use href="#i-bell"/></svg></span>
+                            <strong class="pq-turn">É a sua vez!</strong>
+                            <small>Dirija-se ao atendimento agora.</small>
+                          </div>
+                          <div class="pq-row"><svg class="i"><use href="#i-pin"/></svg><span><small>Onde ir</small>Tenda 3 · Praça central</span></div>
+                          <div class="pq-row"><svg class="i"><use href="#i-bell"/></svg><span><small>Avisos ligados</small>Mesmo com o app fechado</span><span class="switch is-on"></span></div>
+                          <div class="pq-row"><svg class="i"><use href="#i-clock"/></svg><span><small>Esta tela atualiza sozinha</small>Atualiza ao vivo</span></div>
+                          <span class="pq-leave">Não vou conseguir ir · sair da fila</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5 19 11l-6.3 1.7L9.6 19z" fill="#051a2b" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BENTO (seção escura) ================= -->
+    <section class="section section--dark" aria-labelledby="bento-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2" id="bento-title" data-words>O que segura o time até o último dia.</h2>
+        </div>
+        <div class="bento">
+          <div class="bento__cell bento__cell--wide" data-reveal>
+            <div class="bento__visual">
+              <div class="feed" data-scene="queue" data-interval="2400" role="img" aria-label="Feed do time com curtidas, comentários, medalhas e mudanças no ranking chegando.">
+                <div data-rows data-max="4">
+                  <div class="feed__item" data-enter><span class="av av--5">RN</span><span><b>Rafael</b> curtiu a corrida da <b>Camila</b></span><svg class="i feed__ic"><use href="#i-heart"/></svg><span class="feed__time">2 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--3">LO</span><span><b>Logística</b> passou o Financeiro no ranking</span><svg class="i feed__ic"><use href="#i-chart"/></svg><span class="feed__time">14 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--6">AB</span><span><b>Aline</b> conquistou a medalha 10 km na semana</span><svg class="i feed__ic"><use href="#i-award"/></svg><span class="feed__time">38 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--2">BC</span><span><b>Bruno</b> comentou: amanhã tem mais</span><svg class="i feed__ic"><use href="#i-message"/></svg><span class="feed__time">1 h</span></div>
+                </div>
+                <template data-queue>
+                  <div class="feed__item"><span class="av av--3">DM</span><span><b>Diego</b> postou Ciclismo ao ar livre · 18 km</span><svg class="i feed__ic"><use href="#i-activity"/></svg><span class="feed__time">agora</span></div>
+                  <div class="feed__item"><span class="av av--4">JF</span><span><b>Juliana</b> marcou o <b>Pedro</b> na caminhada</span><svg class="i feed__ic"><use href="#i-users"/></svg><span class="feed__time">agora</span></div>
+                  <div class="feed__item"><span class="av av--5">TI</span><span><b>TI</b> subiu para o 4º lugar</span><svg class="i feed__ic"><use href="#i-chart"/></svg><span class="feed__time">agora</span></div>
+                </template>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Feed do time</h3>
+              <p class="body">Curtidas, comentários e quem treinou junto.</p>
+            </div>
+          </div>
+          <div class="bento__cell bento__cell--wide" data-reveal style="--d:80ms">
+            <div class="bento__visual">
+              <div class="orbit" aria-hidden="true">
+                <span class="orbit__ring"></span><span class="orbit__ring orbit__ring--2"></span><span class="orbit__pulse"></span>
+                <span class="orbit__core"><svg class="brand__mark"><use href="#logo-mark"/></svg></span>
+                <span class="orbit__chip" style="left:0;top:12%"><svg class="i"><use href="#i-activity"/></svg>Strava</span>
+                <span class="orbit__chip" style="right:-4%;top:28%"><svg class="i"><use href="#i-steps"/></svg>Google Health</span>
+                <span class="orbit__chip" style="left:-6%;bottom:24%"><svg class="i"><use href="#i-wallet"/></svg>Pix e cartão · Pagar.me</span>
+                <span class="orbit__chip" style="right:2%;bottom:6%"><svg class="i"><use href="#i-phone"/></svg>Notificação no celular</span>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Conecta com o que o time já usa</h3>
+              <p class="body">Strava, Google Health e Pix ou cartão.</p>
+            </div>
+          </div>
+          <div class="bento__cell" data-reveal>
+            <div class="bento__visual">
+              <div class="toggles" aria-hidden="true">
+                <div class="toggle-row"><svg class="i"><use href="#i-camera"/></svg>Foto tirada na hora<span class="switch is-on"></span></div>
+                <div class="toggle-row"><svg class="i"><use href="#i-sparkle"/></svg>Aprovação pela IA<span class="switch is-on"></span></div>
+                <div class="toggle-row"><svg class="i"><use href="#i-key"/></svg>Senha do desafio<span class="switch"></span></div>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Regras do seu jeito</h3>
+              <p class="body">Pontos, limites e prova definidos por desafio.</p>
+            </div>
+          </div>
+          <div class="bento__cell" data-reveal style="--d:80ms">
+            <div class="bento__visual">
+              <div class="shelf" aria-hidden="true">
+                <div class="shelf__head">Prateleira de medalhas<span>3 de 6 conquistadas</span></div>
+                <div class="shelf__row">
+                  <span class="medal is-won"><svg class="i"><use href="#i-award"/></svg><small>Primeiro post</small></span>
+                  <span class="medal is-won"><svg class="i"><use href="#i-activity"/></svg><small>10 km na semana</small></span>
+                  <span class="medal is-won"><svg class="i"><use href="#i-flame"/></svg><small>7 dias seguidos</small></span>
+                  <span class="medal"><svg class="i"><use href="#i-trophy"/></svg><small>100 km</small></span>
+                </div>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Medalha para cada marco</h3>
+              <p class="body">Quem conquista recebe o aviso na hora.</p>
+            </div>
+          </div>
+          <div class="bento__cell" data-reveal style="--d:160ms">
+            <div class="bento__visual">
+              <div class="draw" data-scene="draw" role="img" aria-label="Sorteio ao vivo no palco: os nomes passam na roleta e param em Renata C., vencedora do 1º prêmio.">
+                <picture class="draw__bg"><source srcset="img/palco.avif" type="image/avif"><img src="img/palco.webp" width="640" height="360" alt="" loading="lazy" decoding="async"></picture>
+                <div class="draw__in">
+                  <div class="draw__head"><span><i class="draw__live">Ao vivo</i>Encerramento</span><small>1º prêmio de 3</small></div>
+                  <div class="draw__reel"><span data-reel="Carla S.|Mateus R.|Fernanda L.|Gustavo P.|Bianca T.|Otávio N.|Priscila D.|Renata C.">Renata C.</span></div>
+                  <div class="draw__win" data-win>Temos um vencedor</div>
+                </div>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Sorteio no telão e no app</h3>
+              <p class="body">Mais chances para quem posta mais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="section" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="h2" id="steps-title" data-words>Da demonstração ao primeiro post.</h2>
+          <p class="lead" data-reveal>Sem treinamento: entrou pelo link, já posta.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num">1</span>
+            <div><h3 class="h4">Conte a campanha</h3><p class="body">Bem-estar, ESG, integração ou evento.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-rocket"/></svg>Campanha de bem-estar<span class="step__meta">30 dias</span></div>
+            </div>
+          </li>
+          <li class="step" data-reveal style="--d:80ms">
+            <span class="step__num">2</span>
+            <div><h3 class="h4">Configure o desafio</h3><p class="body">Modalidades, pontos, grupos e medalhas.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-activity"/></svg>Corrida<span class="step__meta">10 pts por km</span></div>
+            </div>
+          </li>
+          <li class="step" data-reveal style="--d:160ms">
+            <span class="step__num">3</span>
+            <div><h3 class="h4">Convide o time</h3><p class="body">Link ou código do grupo, e já posta.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-users"/></svg>Código <b class="step__code">HZN482</b><span class="step__meta">38 entraram</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section section--line" id="perguntas" aria-labelledby="faq-title">
+      <div class="container faq">
+        <div class="faq__intro">
+          <h2 class="h2" id="faq-title" data-words>Perguntas antes de rodar o primeiro desafio.</h2>
+          <p class="body" data-reveal>Não achou a sua? Escreva para <a class="link" href="mailto:contato@goteamgo.com.br">contato@goteamgo.com.br</a> ou fale com a equipe.</p>
+          <div class="btn-row" data-reveal style="--d:80ms"><a class="btn btn--secondary" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20GoTeamGo." target="_blank" rel="noopener" data-track="cta-faq">Falar com a equipe</a></div>
+        </div>
+        <div class="faq__list" data-reveal style="--d:80ms">
+          <details class="faq__item" name="faq">
+            <summary>Precisa instalar alguma coisa?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Não. O GoTeamGo abre no navegador do celular e pode ficar na tela inicial. Também tem app na <a class="link" href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> e no <a class="link" href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a>, e os avisos chegam por notificação ou e-mail.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Como vocês evitam atividade falsa?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Cada desafio escolhe a prova: foto no local, foto tirada na hora, início e fim da atividade, Strava ou passos do Google Health. Os posts passam por aprovação manual, automática ou pela IA, e qualquer pessoa pode denunciar um post.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>E os dados dos colaboradores?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Cada empresa tem uma base de dados separada e pode limitar o cadastro aos e-mails da empresa. O Google Health só lê os passos, e no sorteio os nomes aparecem abreviados. A <a class="link" href="https://app.goteamgo.com.br/policy/">política de privacidade</a> explica o resto.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Dá para mostrar o resultado para a diretoria?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Sim. O painel mostra participantes, pontos por modalidade, medalhas e CO<sub>2</sub> evitado, e o relatório gerencial ESG sai em PDF.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Serve para times em várias cidades?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Sim. Tudo roda no celular, os grupos podem ser por filial e o ranking é o mesmo para todo mundo.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Funciona em evento aberto ao público?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Funciona. A agenda tem fila ou horários marcados, cobra por Pix ou cartão quando precisa, e o sorteio pode ser para qualquer pessoa com o link.</p>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Quanto custa?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">O valor sai na demonstração, de acordo com o formato da campanha. Peça uma demonstração para receber a proposta.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="section section--snug-top" id="comecar" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-panel" data-reveal>
+          <div class="cta-panel__aurora" aria-hidden="true"><i></i><i></i></div>
+          <h2 class="h2" id="cta-title" data-words>Coloque a empresa no ranking. <span class="soft">Veja o GoTeamGo montado para a sua campanha.</span></h2>
+          <div class="btn-row">
+            <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-final">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--secondary btn--lg" href="mailto:contato@goteamgo.com.br?subject=Demonstra%C3%A7%C3%A3o%20do%20GoTeamGo" data-track="cta-final-email">Escrever para o contato</a>
+          </div>
+          <p class="cta-panel__note">Demonstração sem compromisso. O app está na <a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> e no <a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="#topo"><svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>GoTeamGo</a>
+          <p class="footer__about">Desafios entre times para bem-estar, ESG, cultura e eventos.</p>
+        </div>
+        <nav class="footer__col" aria-labelledby="f-produto">
+          <h2 id="f-produto">Produto</h2>
+          <ul><li><a href="#ranking">Ranking por time</a></li><li><a href="#atividade">Atividade com prova</a></li><li><a href="#painel">Painel do RH</a></li><li><a href="#evento">Dia do evento</a></li></ul>
+        </nav>
+        <nav class="footer__col" aria-labelledby="f-solucoes">
+          <h2 id="f-solucoes">Soluções</h2>
+          <ul><li><a href="https://goteamgo.com.br/gamificacao-corporativa/">Gamificação corporativa</a></li><li><a href="https://goteamgo.com.br/desafios-corporativos/">Desafios corporativos</a></li><li><a href="https://goteamgo.com.br/bem-estar-corporativo/">Bem-estar corporativo</a></li><li><a href="https://goteamgo.com.br/gamificacao-esg/">Gamificação ESG</a></li><li><a href="https://goteamgo.com.br/gamificacao-para-eventos/">Gamificação para eventos</a></li></ul>
+        </nav>
+        <nav class="footer__col" aria-labelledby="f-app">
+          <h2 id="f-app">Baixe o app</h2>
+          <ul><li><a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a></li><li><a href="https://app.goteamgo.com.br/">Versão web</a></li></ul>
+        </nav>
+        <nav class="footer__col" aria-labelledby="f-contato">
+          <h2 id="f-contato">Contato</h2>
+          <ul><li><a href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-footer">(12) 98832-1916</a></li><li><a href="mailto:contato@goteamgo.com.br">contato@goteamgo.com.br</a></li><li><a href="https://app.goteamgo.com.br/policy/">Política de privacidade</a></li></ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 GoTeamGo.</span>
+        <span>Desafios, ranking e eventos no mesmo app.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
