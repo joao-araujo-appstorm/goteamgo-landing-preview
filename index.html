@@ -115,6 +115,7 @@
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
     <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17 9 9h6l3.5 8M9 9 8 6.5H6M12 17l3-8M15 9l-1-2.5h2"/></symbol>
     <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M7 6v12M17 6v12M4 9v6M20 9v6M7 12h10"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 10H5z"/></symbol>
     <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></symbol>
   </svg>
 
@@ -411,6 +412,7 @@
           <h2 class="h2" id="game-title" data-words>Treino que vira jogo. <span class="soft">Escolha a modalidade, poste e veja o que acontece.</span></h2>
         </div>
         <div class="gb" data-game>
+          <span class="gb-sparks" aria-hidden="true"><i style="--x:8%;--d:7s;--t:-0.0s"></i><i style="--x:45%;--d:9s;--t:-1.3s"></i><i style="--x:82%;--d:11s;--t:-2.6s"></i><i style="--x:33%;--d:13s;--t:-3.9s"></i><i style="--x:70%;--d:7s;--t:-5.2s"></i><i style="--x:21%;--d:9s;--t:-6.5s"></i><i style="--x:58%;--d:11s;--t:-7.8s"></i><i style="--x:9%;--d:13s;--t:-9.1s"></i><i style="--x:46%;--d:7s;--t:-10.4s"></i></span>
           <div class="gb-mods" role="group" aria-label="Modalidade do treino">
             <button type="button" class="gb-mod" data-gb-mod="57" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-activity"/></svg>Corrida<em>+57</em></button>
             <button type="button" class="gb-mod" data-gb-mod="88" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-bike"/></svg>Pedal<em>+88</em></button>
@@ -419,12 +421,13 @@
           </div>
           <div class="gb-core">
             <div class="gb-ring">
-              <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="gb-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2de0e7"/><stop offset="1" stop-color="#0ac5cc"/></linearGradient></defs><circle class="gb-ring__track" cx="100" cy="100" r="86"/><circle class="gb-ring__bar" cx="100" cy="100" r="86" pathLength="100" style="stroke-dashoffset:30" data-gb-ring/></svg>
+              <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="gb-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2de0e7"/><stop offset="1" stop-color="#0ac5cc"/></linearGradient></defs><circle class="gb-ring__track" cx="100" cy="100" r="86"/><circle class="gb-ring__bar" cx="100" cy="100" r="86" pathLength="100" style="stroke-dashoffset:30" data-gb-ring/><g class="gb-ring__tip" style="transform:rotate(252deg)" data-gb-tip><circle cx="186" cy="100" r="6.5"/></g></svg>
+              <span class="gb-wave" aria-hidden="true" data-gb-wave></span>
               <span class="gb-ring__in"><small>Nível</small><b data-gb-lvl>12</b><span data-gb-liga>Liga 2 • Consistente</span></span>
               <span class="gb-burst" aria-hidden="true" data-gb-burst></span>
             </div>
             <p class="gb-xp"><b data-gb-pts>2.140</b> / <span data-gb-next>2.200</span> pontos</p>
-            <button type="button" class="gb-post is-idle" data-gb-post><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Postar treino</button>
+            <button type="button" class="gb-post is-idle" data-gb-post><span class="gb-post__shine" aria-hidden="true"></span><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Postar treino</button>
             <button type="button" class="gb-reset" data-gb-reset hidden>Recomeçar</button>
           </div>
           <div class="gb-side">
@@ -433,7 +436,7 @@
               <li data-gb-row data-pts="2310" style="--i:0"><i>1º</i><span class="av av--5">RN</span><b>Rafael N.</b><em>2.310</em></li>
               <li data-gb-row data-pts="2260" style="--i:1"><i>2º</i><span class="av av--2">BT</span><b>Bianca T.</b><em>2.260</em></li>
               <li data-gb-row data-pts="2180" style="--i:2"><i>3º</i><span class="av av--3">DM</span><b>Diego M.</b><em>2.180</em></li>
-              <li data-gb-row data-pts="2140" data-me class="is-me" style="--i:3"><i>4º</i><span class="av av--4">CR</span><b>Você</b><em data-gb-mept>2.140</em></li>
+              <li data-gb-row data-pts="2140" data-me class="is-me" style="--i:3"><i>4º</i><span class="av av--4">CR<svg class="gb-crown" aria-hidden="true"><use href="#i-crown"/></svg></span><b>Você</b><em data-gb-mept>2.140</em></li>
             </ol>
             <p class="gb-label">Medalhas <span data-gb-won>2</span>/4</p>
             <div class="gb-medals">

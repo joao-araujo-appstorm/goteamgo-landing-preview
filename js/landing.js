@@ -1308,8 +1308,8 @@
     const board = document.querySelector('[data-game]');
     if (!board) return;
     const $ = (s) => board.querySelector(s);
-    const bar = $('[data-gb-ring]'), ring = $('.gb-ring'), lvlEl = $('[data-gb-lvl]'), ligaEl = $('[data-gb-liga]');
-    const ptsEl = $('[data-gb-pts]'), nextEl = $('[data-gb-next]'), meEl = $('[data-gb-mept]'), wonEl = $('[data-gb-won]');
+    const bar = $('[data-gb-ring]'), tip = $('[data-gb-tip]'), ring = $('.gb-ring'), wave = $('[data-gb-wave]');
+    const lvlEl = $('[data-gb-lvl]'), ligaEl = $('[data-gb-liga]'), ptsEl = $('[data-gb-pts]'), nextEl = $('[data-gb-next]'), meEl = $('[data-gb-mept]'), wonEl = $('[data-gb-won]');
     const btn = $('[data-gb-post]'), again = $('[data-gb-reset]'), toasts = $('[data-gb-toasts]'), live = $('[data-gb-live]'), burstEl = $('[data-gb-burst]');
     const mods = [...board.querySelectorAll('[data-gb-mod]')];
     const rows = [...board.querySelectorAll('[data-gb-row]')];
@@ -1317,29 +1317,45 @@
     const LIGAS = ['Iniciante', 'Consistente', 'Atleta', 'Competidor', 'Elite', 'Maratonista Profissional'];
     const MEDALS = { 2: '10 km na semana', 4: '100 km no mês' };
     const COLORS = ['#f4b400', '#ffd36a', '#2de0e7', '#0ac5cc', '#ff6b8a', '#9fe9ec'];
+    const GOLD = ['#f4b400', '#ffd36a', '#fff3c4', '#f6b73c'];
     const fmt = (n) => new Intl.NumberFormat(LANG).format(n);
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     // tabela de exemplo: o nível 12 vai de 2.000 a 2.200 e cada nível pede 20 pontos a mais que o anterior
     const levelOf = (p) => { let lvl = 12, start = 2000, w = 200; while (p >= start + w) { start += w; w += 20; lvl += 1; } return { lvl, start, end: start + w }; };
+    const progress = (p) => { const L = levelOf(p); return Math.round(((p - L.start) / (L.end - L.start)) * 100); };
     rows.forEach((r) => { r.dataset.start = r.dataset.pts; });
-    let pts = 2140, posts = 0, add = 57, touched = false, inView = false, demoTimer = 0, demoDone = false;
+    let pts = 2140, posts = 0, add = 57, touched = false, inView = false, demoTimer = 0, demoDone = false, shown = false;
+    let gen = 0; // sobe a cada recomeço: contagens e subidas de nível pendentes de antes param
 
+    const setRing = (v, snap) => {
+      if (snap) { bar.classList.add('is-snap'); tip.classList.add('is-snap'); }
+      bar.style.strokeDashoffset = String(100 - v);
+      tip.style.transform = `rotate(${v * 3.6}deg)`;
+      if (snap) { void bar.getBoundingClientRect(); bar.classList.remove('is-snap'); tip.classList.remove('is-snap'); }
+    };
+    const tween = (el, from, to) => {
+      if (RM.matches || from === to) { el.textContent = fmt(to); return; }
+      const t0 = performance.now();
+      const g = gen;
+      const step = (t) => {
+        if (g !== gen) return;
+        const k = Math.min(1, (t - t0) / 650);
+        el.textContent = fmt(Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const restartAnim = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
     const order = () => {
       const sorted = [...rows].sort((a, b) => Number(b.dataset.pts) - Number(a.dataset.pts));
       sorted.forEach((r, i) => { r.style.setProperty('--i', i); r.querySelector('i').textContent = `${i + 1}º`; });
       return sorted.indexOf(me) + 1;
     };
-    const paint = () => {
-      const L = levelOf(pts);
-      bar.style.strokeDashoffset = String(100 - Math.round(((pts - L.start) / (L.end - L.start)) * 100));
+    const setLevel = (L) => {
       const liga = Math.min(6, Math.ceil(L.lvl / 10));
       lvlEl.textContent = L.lvl;
       ligaEl.textContent = `Liga ${liga} • ${LIGAS[liga - 1]}`;
-      ptsEl.textContent = fmt(pts);
       nextEl.textContent = fmt(L.end);
-      meEl.textContent = fmt(pts);
-      me.dataset.pts = pts;
-      return L.lvl;
     };
     const toast = (title, text) => {
       const t = document.createElement('div');
@@ -1351,14 +1367,16 @@
       while (toasts.children.length > 2) toasts.lastElementChild.remove();
       setTimeout(() => { t.classList.add('is-out'); setTimeout(() => t.remove(), 400); }, 2600);
     };
-    const burst = () => {
+    const burst = (colors, n, spread) => {
       if (RM.matches) return;
-      burstEl.innerHTML = Array.from({ length: 18 }, (_, i) => {
-        const a = (i / 18) * Math.PI * 2;
-        const d = 110 + (i % 3) * 30;
-        return `<i style="--x:${Math.round(Math.cos(a) * d)}px;--y:${Math.round(Math.sin(a) * d * 0.8)}px;--r:${(i * 67) % 360}deg;--k:${COLORS[i % 6]}"></i>`;
+      const g = document.createElement('span');
+      g.innerHTML = Array.from({ length: n }, (_, i) => {
+        const a = (i / n) * Math.PI * 2 + Math.random() * 0.3;
+        const d = spread + (i % 3) * 30;
+        return `<i style="--x:${Math.round(Math.cos(a) * d)}px;--y:${Math.round(Math.sin(a) * d * 0.8)}px;--r:${(i * 67) % 360}deg;--k:${colors[i % colors.length]}"></i>`;
       }).join('');
-      setTimeout(() => { burstEl.innerHTML = ''; }, 1400);
+      burstEl.appendChild(g);
+      setTimeout(() => g.remove(), 1400);
     };
     const float = (n) => {
       if (RM.matches) return;
@@ -1368,29 +1386,51 @@
       btn.parentNode.appendChild(f);
       setTimeout(() => f.remove(), 1200);
     };
+    // vibração curta no celular, só em toque de verdade
+    const buzz = (pattern, trusted) => { if (trusted && navigator.vibrate) navigator.vibrate(pattern); };
     const press = () => { btn.classList.add('is-press'); setTimeout(() => btn.classList.remove('is-press'), 160); };
     const select = (k) => { add = Number(mods[k].dataset.gbMod); mods.forEach((m, i) => m.setAttribute('aria-pressed', String(i === k))); };
+    const levelUp = (L) => {
+      setLevel(L);
+      restartAnim(lvlEl, 'is-roll');
+      restartAnim(ring, 'is-up');
+      restartAnim(wave, 'is-go');
+      restartAnim(board, 'is-flash');
+      burst(COLORS, 26, 130);
+    };
 
-    const post = () => {
+    const post = (trusted) => {
       const oldPts = pts;
-      const oldLvl = levelOf(pts).lvl;
+      const old = levelOf(pts);
       const oldRank = order();
       pts += add;
       posts += 1;
-      const lvl = paint();
+      me.dataset.pts = pts;
+      const L = levelOf(pts);
       const rank = order();
       const said = [`Mais ${add} pontos.`];
+      tween(ptsEl, oldPts, pts);
+      tween(meEl, oldPts, pts);
       float(add);
-      if (lvl > oldLvl) {
-        ring.classList.remove('is-up'); void ring.offsetWidth; ring.classList.add('is-up');
-        burst();
-        toast(`Subiu para o nível ${lvl}`, ligaEl.textContent);
-        said.push(`Nível ${lvl}.`);
+      if (L.lvl > old.lvl) {
+        if (RM.matches) { setLevel(L); setRing(progress(pts), true); }
+        else {
+          // o anel completa a volta, zera e enche de novo no nível novo
+          setRing(100);
+          const g = gen;
+          setTimeout(() => { if (g !== gen) return; setRing(0, true); requestAnimationFrame(() => setRing(progress(pts))); levelUp(L); }, 480);
+        }
+        toast(`Subiu para o nível ${L.lvl}`, `Liga ${Math.min(6, Math.ceil(L.lvl / 10))} • ${LIGAS[Math.min(6, Math.ceil(L.lvl / 10)) - 1]}`);
+        said.push(`Nível ${L.lvl}.`);
+        buzz([18, 40, 28], trusted);
+      } else {
+        setRing(progress(pts));
+        buzz(12, trusted);
       }
       if (rank < oldRank) {
         const passed = rows.filter((r) => r !== me && Number(r.dataset.pts) >= oldPts && Number(r.dataset.pts) < pts).map((r) => r.querySelector('b').textContent);
         me.classList.toggle('is-top', rank === 1);
-        if (rank === 1) burst();
+        if (rank === 1) { burst(GOLD, 22, 115); buzz([25, 30, 25, 30, 45], trusted); }
         toast(rank === 1 ? '1º no ranking do desafio' : `Subiu para ${rank}º no ranking`, `Você passou ${passed.join(' e ')}`);
         said.push(`${rank}º no ranking.`);
       }
@@ -1406,18 +1446,23 @@
       if (posts >= 4) again.hidden = false;
     };
     const restart = () => {
+      gen += 1;
       pts = 2140; posts = 0;
       rows.forEach((r) => { r.dataset.pts = r.dataset.start; });
       board.querySelectorAll('[data-gb-medal]').forEach((m) => m.classList.remove('is-won', 'is-new'));
       wonEl.textContent = '2';
       me.classList.remove('is-top');
       toasts.innerHTML = '';
-      paint(); order();
+      setLevel(levelOf(pts));
+      setRing(progress(pts), true);
+      ptsEl.textContent = fmt(pts);
+      meEl.textContent = fmt(pts);
+      order();
       again.hidden = true;
     };
     const stopDemo = () => { touched = true; clearTimeout(demoTimer); btn.classList.remove('is-idle'); };
 
-    btn.addEventListener('click', (e) => { if (e.isTrusted) stopDemo(); press(); post(); });
+    btn.addEventListener('click', (e) => { if (e.isTrusted) stopDemo(); press(); post(e.isTrusted); });
     mods.forEach((m, k) => m.addEventListener('click', (e) => { if (e.isTrusted) stopDemo(); select(k); }));
     again.addEventListener('click', () => { restart(); select(0); btn.focus(); });
 
@@ -1427,18 +1472,20 @@
       btn.classList.remove('is-idle');
       for (const k of [0, 0, 1, 0]) {
         if (touched || !inView || root.classList.contains('is-still')) return;
-        select(k); press(); post();
-        await sleep(1700);
+        select(k); press(); post(false);
+        await sleep(1800);
       }
       await sleep(2600);
       if (!touched) { restart(); select(0); btn.classList.add('is-idle'); }
     };
     if (hasIO && !RM.matches) {
+      setRing(0, true); // o anel enche quando o tabuleiro aparece
       new IntersectionObserver(([e]) => {
-        inView = e.isIntersecting;
+        if (e.intersectionRatio >= 0.2 && !shown) { shown = true; setTimeout(() => setRing(progress(pts)), 250); }
+        inView = e.intersectionRatio >= 0.45;
         clearTimeout(demoTimer);
         if (inView && !touched && !demoDone) demoTimer = setTimeout(demo, 1600);
-      }, { threshold: 0.45 }).observe(board);
+      }, { threshold: [0, 0.2, 0.45] }).observe(board);
     }
   }
 
