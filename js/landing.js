@@ -21,7 +21,9 @@
   const hasIO = 'IntersectionObserver' in window;
   root.classList.add('js');
 
+  // bloco da outra versão da página (escondido) conta como fora da tela: anima quando aparecer
   const offscreen = (el) => {
+    if (!el.getClientRects().length) return true;
     const r = el.getBoundingClientRect();
     return r.top > window.innerHeight * 0.9 || r.bottom < 0;
   };
@@ -131,6 +133,43 @@
     });
   }
 
+  // Versão da página: "Para você" (padrão) ou "Para empresas" (#empresas). O script do <head> já marcou
+  // a versão antes do primeiro desenho; aqui o seletor troca sem recarregar e o endereço acompanha.
+  function initAudience() {
+    const links = [...document.querySelectorAll('[data-aud-link]')];
+    if (!links.length) return;
+    const TITLES = { voce: document.title, empresa: 'GoTeamGo para empresas · Desafios de bem-estar e ESG' };
+    const mark = () => links.forEach((a) => {
+      if (a.dataset.audLink === root.dataset.aud) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    const set = (aud, push) => {
+      aud = aud === 'empresa' ? 'empresa' : 'voce';
+      try { sessionStorage.setItem('gtg-aud', aud); } catch (e) { /* sem armazenamento: só não lembra */ }
+      if (push) history.pushState(null, '', aud === 'empresa' ? '#empresas' : location.pathname + location.search);
+      if (root.dataset.aud === aud) return;
+      root.dataset.aud = aud;
+      document.title = TITLES[aud];
+      mark();
+      document.dispatchEvent(new CustomEvent('landing:audience'));
+    };
+    if (root.dataset.aud !== 'empresa') root.dataset.aud = 'voce';
+    document.title = TITLES[root.dataset.aud];
+    mark();
+    links.forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      set(a.dataset.audLink, true);
+      // fora do herói (navbar, menu, rodapé, CTA), volta ao topo para começar a outra versão do início
+      if (!a.closest('.hero')) requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: RM.matches ? 'auto' : 'smooth' }));
+    }));
+    // voltar/avançar do navegador; âncoras internas (#x1, #evento...) mantêm a versão atual
+    addEventListener('popstate', () => {
+      const h = location.hash;
+      if (h === '#empresas') set('empresa', false);
+      else if (h === '#voce' || !h) set('voce', false);
+    });
+  }
+
   function initBilling() {
     document.querySelectorAll('[data-billing]').forEach((group) => {
       const scope = group.closest('section') || document;
@@ -157,11 +196,13 @@
       let k = Math.max(0, words.indexOf(word.textContent.trim()));
       const widths = {};
       const measure = () => {
+        if (!rot.getClientRects().length) return; // título da outra versão: mede quando aparecer
         const probe = document.createElement('span');
         probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
         rot.appendChild(probe);
         const em = parseFloat(getComputedStyle(rot).fontSize) || 16;
-        for (const w of words) { probe.textContent = w; widths[w] = (probe.getBoundingClientRect().width / em + 0.02).toFixed(3); }
+        // offsetWidth ignora a escala da animação de entrada das palavras (getBoundingClientRect não)
+        for (const w of words) { probe.textContent = w; widths[w] = (probe.offsetWidth / em + 0.02).toFixed(3); }
         probe.remove();
         // trava a altura do título na maior que ele chega a ter, para o resto da página não pular
         const title = rot.closest('h1');
@@ -180,6 +221,7 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
       let resizing = 0;
       addEventListener('resize', () => { clearTimeout(resizing); resizing = setTimeout(measure, 150); });
+      document.addEventListener('landing:audience', measure);
       let visible = true;
       if (hasIO) new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(rot);
       const letters = (w) => {
@@ -219,10 +261,12 @@
     const hero = canvas && canvas.closest('.hero');
     if (!canvas || !hero) return;
     let gl = null;
-    try { gl = canvas.getContext('webgl', { antialias: false, alpha: false, depth: false, powerPreference: 'low-power' }); } catch (e) { gl = null; }
+    try { gl = canvas.getContext('webgl', { antialias: false, alpha: false, depth: false, preserveDrawingBuffer: true, powerPreference: 'low-power' }); } catch (e) { gl = null; }
     if (!gl) return;
     const vert = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-    const frag = 'precision mediump float;uniform vec2 r;uniform float t;uniform vec4 b;uniform float l;' +
+    // precisão alta quando existe: em mediump (16 bits em muitos celulares) o ruído vira faixas
+    const frag = '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n' +
+      'uniform vec2 r;uniform float t;uniform vec4 b;uniform float l;' +
       'float h(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}' +
       'float n(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),u.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),u.x),u.y);}' +
       'float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}' +
@@ -430,7 +474,7 @@
         io.unobserve(e.target);
       }
     }, { rootMargin: '0px 0px -12% 0px' });
-    document.querySelectorAll('[data-words]').forEach((el) => {
+    document.querySelectorAll('[data-words]:not(.rotator)').forEach((el) => {
       if (!offscreen(el)) return;
       splitWords(el);
       el.classList.add('is-armed');
@@ -975,6 +1019,171 @@
     },
   };
 
+  /* ---- cenas da versão "Para você" ---- */
+  async function press(api, node) {
+    if (!node) return;
+    node.classList.add('is-press');
+    await api.wait(160);
+    node.classList.remove('is-press');
+  }
+
+  // Desafio aberto: toca em "individualmente", a folha do pódio dos pagantes sobe, escolhe pago
+  // e, no outro celular, o Pix é copiado e o pagamento é confirmado.
+  recipes.challenge = {
+    reset: 'fade',
+    arm(el) {
+      const sheet = el.querySelector('[data-sheet]');
+      if (sheet) sheet.classList.remove('is-shown');
+      el.querySelectorAll('.cp-choice').forEach((c) => c.classList.remove('is-picked'));
+      const pay = el.querySelector('[data-pay-state]');
+      if (pay) pay.dataset.payState = 'before';
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      await api.wait(900);
+      const solo = el.querySelector('[data-solo]');
+      await cursorTo(api, solo);
+      await press(api, solo);
+      const sheet = el.querySelector('[data-sheet]');
+      if (sheet) sheet.classList.add('is-shown');
+      await api.wait(1300);
+      const paid = el.querySelector('[data-pay]');
+      await cursorTo(api, paid);
+      if (paid) paid.classList.add('is-picked');
+      await api.wait(1000);
+      const copy = el.querySelector('[data-copy]');
+      await cursorTo(api, copy);
+      await press(api, copy);
+      const copied = el.querySelector('[data-copied]');
+      if (copied) copied.classList.add('is-shown');
+      await api.wait(1700);
+      if (copied) copied.classList.remove('is-shown');
+      const pay = el.querySelector('[data-pay-state]');
+      if (pay) {
+        pay.dataset.payState = 'after';
+        const ok = pay.querySelector('.pay-ok');
+        if (ok) appear(ok, 10, 520);
+      }
+      await api.wait(3800);
+    },
+  };
+
+  // Duelo X1: Camila aceita o desafio da Bianca, informa que venceu, o duelo fecha com a medalha
+  // e o card do ranking de duelo enche.
+  const PILL = { pending: ['is-pending', 'Aguardando aceite'], accepted: ['is-accepted', 'Em andamento'], finished: ['is-finished', 'Finalizado'] };
+  function setPill(el, k) {
+    const p = el.querySelector('[data-pill]');
+    if (!p) return;
+    p.classList.remove('is-pending', 'is-accepted', 'is-finished', 'is-pop');
+    p.classList.add(PILL[k][0]);
+    p.textContent = PILL[k][1];
+    void p.offsetWidth;
+    p.classList.add('is-pop');
+  }
+  recipes.duel = {
+    reset: 'fade',
+    arm(el) {
+      const body = el.querySelector('[data-x1]');
+      if (body) body.dataset.x1 = 'wait';
+      setPill(el, 'pending');
+      el.querySelectorAll('.x1-choice').forEach((c) => c.classList.remove('is-picked'));
+      const pts = el.querySelector('[data-pts]');
+      if (pts) { pts.dataset.count = '420'; pts.textContent = '420'; }
+      const pct = el.querySelector('[data-pct]');
+      if (pct) pct.textContent = '80%';
+      const bar = el.querySelector('[data-bar]');
+      if (bar) bar.style.setProperty('--p', '0.8');
+      const next = el.querySelector('[data-next]');
+      if (next) next.textContent = 'Próximo nível em 30 pts';
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      const body = el.querySelector('[data-x1]');
+      await api.wait(900);
+      const accept = el.querySelector('[data-accept]');
+      await cursorTo(api, accept);
+      await press(api, accept);
+      setPill(el, 'accepted');
+      if (body) { body.dataset.x1 = 'play'; const c = body.querySelector('[data-show="play"]'); if (c) appear(c, 8, 460); }
+      await api.wait(1100);
+      const winner = el.querySelector('[data-winner]');
+      await cursorTo(api, winner);
+      if (winner) winner.classList.add('is-picked');
+      await api.wait(800);
+      if (body) { body.dataset.x1 = 'after'; const c = body.querySelector('[data-show="after"]'); if (c) appear(c, 8, 460); }
+      setPill(el, 'finished');
+      await api.wait(700);
+      const pts = el.querySelector('[data-pts]');
+      if (pts) { pts.dataset.count = '445'; countTo(api, pts, 445, 900, 420).catch(() => {}); }
+      const pct = el.querySelector('[data-pct]');
+      if (pct) pct.textContent = '97%';
+      const bar = el.querySelector('[data-bar]');
+      if (bar) bar.style.setProperty('--p', '0.97');
+      const next = el.querySelector('[data-next]');
+      if (next) next.textContent = 'Próximo nível em 5 pts';
+      await api.wait(4200);
+    },
+  };
+
+  // Torneio: as semifinais se resolvem, a chave anda (como arrastar no app) até a final e aparece a campeã.
+  recipes.bracket = {
+    reset: 'fade',
+    arm(el) {
+      el.querySelectorAll('.tr-p').forEach((p) => {
+        p.classList.remove('is-adv', 'is-out');
+        p.classList.add(p.dataset.slot ? 'is-wait' : 'is-pend');
+      });
+      const champ = el.querySelector('[data-champ]');
+      if (champ) champ.classList.add('is-wait');
+      const st = el.querySelector('[data-st]');
+      if (st) { st.classList.remove('is-done'); st.textContent = 'Em andamento'; }
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      const tree = el.querySelector('[data-tree]');
+      const resolve = (r) => el.querySelectorAll(`.tr-p[data-r="${r}"]`).forEach((p) => {
+        p.classList.remove('is-pend', 'is-wait');
+        p.classList.add(p.dataset.res === 'adv' ? 'is-adv' : 'is-out');
+      });
+      const fill = (slot) => {
+        const p = el.querySelector(`.tr-p[data-slot="${slot}"]`);
+        if (!p) return;
+        p.classList.remove('is-wait');
+        p.classList.add('is-pend');
+        appear(p, 6, 420);
+      };
+      const panTo = (name) => {
+        const col = el.querySelector(`[data-col="${name}"]`);
+        if (!tree || !col) return;
+        const x = tree.scrollLeft + col.getBoundingClientRect().left - tree.getBoundingClientRect().left;
+        tree.scrollTo({ left: Math.max(0, x - 6), behavior: 'smooth' });
+      };
+      await api.wait(900);
+      resolve(1);
+      await api.wait(700);
+      fill(1);
+      await api.wait(900);
+      resolve(2);
+      await api.wait(700);
+      fill(2);
+      await api.wait(800);
+      panTo('final');
+      await api.wait(1000);
+      resolve(3);
+      await api.wait(800);
+      panTo('champ');
+      await api.wait(700);
+      const champ = el.querySelector('[data-champ]');
+      if (champ) champ.classList.remove('is-wait');
+      const st = el.querySelector('[data-st]');
+      if (st) { st.classList.add('is-done', 'is-pop'); st.textContent = 'Finalizado'; }
+      await api.wait(4200);
+    },
+  };
+
   /* ---- controlador ---- */
   function createController(el) {
     const names = el.dataset.scene.trim().split(/\s+/).filter((n) => recipes[n]);
@@ -1098,6 +1307,7 @@
   }
 
   initNav();
+  initAudience();
   initReveal();
   initTour();
   initBilling();

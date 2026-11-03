@@ -4,20 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>GoTeamGo · Desafios de bem-estar e ESG para empresas</title>
-  <meta name="description" content="Desafios entre times com pontos, ranking, medalhas e CO₂ evitado. O RH acompanha tudo no painel e o evento roda no mesmo app. Peça uma demonstração.">
+  <title>GoTeamGo · Desafios, duelos X1 e torneios para quem treina</title>
+  <meta name="description" content="Desafios, duelos X1 e torneios no celular. Cada treino vale ponto, medalha e lugar no ranking, e criar a conta é grátis. Também tem versão para empresas.">
   <link rel="canonical" href="https://goteamgo.com.br/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="GoTeamGo">
-  <meta property="og:title" content="GoTeamGo · A empresa inteira se mexendo, com ranking e medalha">
-  <meta property="og:description" content="Desafios entre times com pontos, ranking, medalhas e CO₂ evitado. O RH acompanha tudo no painel. Peça uma demonstração.">
+  <meta property="og:title" content="GoTeamGo · Cada treino vale ponto, medalha e lugar no ranking">
+  <meta property="og:description" content="Entre em desafios, chame alguém pro X1 e dispute torneios com chave. Criar a conta é grátis. Também tem versão para empresas.">
   <meta property="og:url" content="https://joao-araujo-appstorm.github.io/goteamgo-landing-preview/">
-  <meta property="og:image" content="https://joao-araujo-appstorm.github.io/goteamgo-landing-preview/og.png">
+  <meta property="og:image" content="https://joao-araujo-appstorm.github.io/goteamgo-landing-preview/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
+  <!-- versão da página antes do primeiro desenho: #empresas abre a de empresa; sem JS, o seletor usa :target -->
+  <script>(function (d) { var h = location.hash, a = h === '#empresas' ? 'empresa' : h === '#voce' ? 'voce' : ''; if (!a) { try { a = sessionStorage.getItem('gtg-aud') || ''; } catch (e) {} } d.dataset.aud = a === 'empresa' ? 'empresa' : 'voce'; })(document.documentElement);</script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
@@ -30,10 +32,11 @@
     "@type": "SoftwareApplication",
     "name": "GoTeamGo",
     "url": "https://goteamgo.com.br/",
-    "applicationCategory": "BusinessApplication",
+    "applicationCategory": "HealthApplication",
     "operatingSystem": "Web, Android, iOS",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
     "downloadUrl": ["https://apps.apple.com/br/app/goteamgo/id6756112455", "https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa"],
-    "description": "Desafios entre times para empresas: atividades com prova, pontos por modalidade, ranking por grupo, medalhas, CO₂ evitado e relatório ESG. Fila com QR Code e sorteio ao vivo para eventos.",
+    "description": "Desafios, duelos X1 e torneios para quem treina: cada atividade postada vale ponto, medalha e lugar no ranking. Para empresas, desafios entre times com painel do RH, CO₂ evitado, relatório ESG, fila com QR Code e sorteio ao vivo.",
     "publisher": { "@type": "Organization", "name": "GoTeamGo", "email": "contato@goteamgo.com.br", "url": "https://goteamgo.com.br/" }
   }
   </script>
@@ -42,13 +45,13 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "Precisa instalar alguma coisa?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O GoTeamGo abre no navegador do celular e pode ficar na tela inicial. Também tem app para iPhone e Android, e os avisos chegam por notificação ou e-mail." } },
-      { "@type": "Question", "name": "Como vocês evitam atividade falsa?", "acceptedAnswer": { "@type": "Answer", "text": "Cada desafio escolhe a prova: foto no local, foto tirada na hora, início e fim da atividade, Strava ou passos do Google Health. Os posts passam por aprovação manual, automática ou pela IA, e qualquer pessoa pode denunciar um post." } },
-      { "@type": "Question", "name": "E os dados dos colaboradores?", "acceptedAnswer": { "@type": "Answer", "text": "Cada empresa tem uma base de dados separada e pode limitar o cadastro aos e-mails da empresa. O Google Health só lê os passos, e no sorteio os nomes aparecem abreviados." } },
-      { "@type": "Question", "name": "Dá para mostrar o resultado para a diretoria?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O painel mostra participantes, pontos por modalidade, medalhas e CO₂ evitado, e o relatório gerencial ESG sai em PDF." } },
-      { "@type": "Question", "name": "Serve para times em várias cidades?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Tudo roda no celular, os grupos podem ser por filial e o ranking é o mesmo para todo mundo." } },
-      { "@type": "Question", "name": "Funciona em evento aberto ao público?", "acceptedAnswer": { "@type": "Answer", "text": "Funciona. A agenda tem fila ou horários marcados, cobra por Pix ou cartão quando precisa, e o sorteio pode ser para qualquer pessoa com o link." } },
-      { "@type": "Question", "name": "Quanto custa?", "acceptedAnswer": { "@type": "Answer", "text": "O valor sai na demonstração, de acordo com o formato da campanha. Peça uma demonstração para receber a proposta." } }
+      { "@type": "Question", "name": "Quanto custa?", "acceptedAnswer": { "@type": "Answer", "text": "Criar a conta e usar o app não custa nada. Alguns desafios cobram inscrição, com o valor definido por quem organiza. Quando o desafio aceita os dois modos, dá para entrar de graça e só não disputar o prêmio." } },
+      { "@type": "Question", "name": "Como funciona o prêmio em dinheiro?", "acceptedAnswer": { "@type": "Answer", "text": "Nos desafios com pódio dos pagantes, o prêmio é a soma das inscrições de quem escolheu pagar e é dividido entre o Top 3 desse ranking. A cobrança acontece no primeiro post, por Pix ou cartão." } },
+      { "@type": "Question", "name": "Preciso de relógio ou Strava?", "acceptedAnswer": { "@type": "Answer", "text": "Não. A foto do treino já vale. Quem usa Strava ou Google Health pode importar a atividade ou os passos." } },
+      { "@type": "Question", "name": "Como funciona o X1?", "acceptedAnswer": { "@type": "Answer", "text": "Você escolhe a pessoa, a modalidade e o local e manda o desafio. Depois do confronto, cada um informa quem venceu. Se os resultados não batem, quem administra o duelo decide." } },
+      { "@type": "Question", "name": "Posso criar um torneio com os amigos?", "acceptedAnswer": { "@type": "Answer", "text": "Pode. Você escolhe o tamanho da chave, de 2 a 256 pessoas, se a entrada é individual ou em grupo e se o torneio é aberto ou com senha de 4 números." } },
+      { "@type": "Question", "name": "Como vocês evitam trapaça?", "acceptedAnswer": { "@type": "Answer", "text": "Cada desafio escolhe a prova: foto no local, foto tirada na hora, início e fim da atividade, Strava ou passos do Google Health. Os posts passam por aprovação manual, automática ou pela IA, e qualquer pessoa pode denunciar um post." } },
+      { "@type": "Question", "name": "Funciona no iPhone e no Android?", "acceptedAnswer": { "@type": "Answer", "text": "Funciona. Tem app na App Store e no Google Play, e também abre no navegador do celular." } }
     ]
   }
   </script>
@@ -99,6 +102,14 @@
     <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
     <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.5" height="14" rx="1"/><rect x="14" y="5" width="3.5" height="14" rx="1"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 4-6 8-6s7.2 2 8 6"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 3 8.3 7 10 4-1.7 7-5.4 7-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/></symbol>
   </svg>
 
@@ -109,13 +120,18 @@
       </a>
       <nav class="nav__links" aria-label="Principal">
         <a href="#produto">Como funciona</a>
-        <a href="#evento">Eventos</a>
-        <a href="#clientes">Clientes</a>
+        <a href="#x1" data-for="voce">Duelo X1</a>
+        <a href="#torneio" data-for="voce">Torneios</a>
+        <a href="#evento" data-for="empresa">Eventos</a>
+        <a href="#clientes" data-for="empresa">Clientes</a>
         <a href="#perguntas">Perguntas</a>
       </nav>
       <div class="nav__actions">
+        <a class="nav__aud" href="#empresas" data-aud-link="empresa" data-for="voce"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg>Para empresas</a>
+        <a class="nav__aud" href="#voce" data-aud-link="voce" data-for="empresa"><svg class="i" aria-hidden="true"><use href="#i-user"/></svg>Para você</a>
         <a class="btn btn--secondary btn--sm nav__login" href="https://app.goteamgo.com.br/">Entrar</a>
-        <a class="btn btn--primary btn--sm" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav"><span class="lbl-long">Pedir demonstração</span><span class="lbl-short">Demonstração</span><span class="lbl-tiny">Agendar</span></a>
+        <a class="btn btn--primary btn--sm" href="https://app.goteamgo.com.br/register/" data-track="cta-nav-conta" data-for="voce"><span class="lbl-long">Criar conta grátis</span><span class="lbl-short">Criar conta</span><span class="lbl-tiny">Criar conta</span></a>
+        <a class="btn btn--primary btn--sm" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav" data-for="empresa"><span class="lbl-long">Pedir demonstração</span><span class="lbl-short">Demonstração</span><span class="lbl-tiny">Agendar</span></a>
         <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu" data-nav-toggle>
           <span class="burger" aria-hidden="true"><i></i><i></i></span>
         </button>
@@ -124,13 +140,18 @@
     <div class="nav__mobile" id="menu-mobile" hidden>
       <nav class="m-menu" aria-label="Menu">
         <a class="m-link" href="#produto" style="--i:0"><span>Como funciona</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="m-link" href="#evento" style="--i:1"><span>Eventos</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="m-link" href="#clientes" style="--i:2"><span>Clientes</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#x1" style="--i:1" data-for="voce"><span>Duelo X1</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#torneio" style="--i:2" data-for="voce"><span>Torneios</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#evento" style="--i:1" data-for="empresa"><span>Eventos</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="m-link" href="#clientes" style="--i:2" data-for="empresa"><span>Clientes</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="m-link" href="#perguntas" style="--i:3"><span>Perguntas</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </nav>
       <div class="m-foot" style="--i:4">
-        <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav-mobile">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--primary btn--lg" href="https://app.goteamgo.com.br/register/" data-track="cta-nav-mobile-conta" data-for="voce">Criar minha conta grátis <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-nav-mobile" data-for="empresa">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn--secondary btn--lg" href="https://app.goteamgo.com.br/">Entrar</a>
+        <a class="m-aud" href="#empresas" data-aud-link="empresa" data-for="voce"><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg>Tem uma empresa? Ver a versão para empresas</a>
+        <a class="m-aud" href="#voce" data-aud-link="voce" data-for="empresa"><svg class="i" aria-hidden="true"><use href="#i-user"/></svg>Ver a versão para você</a>
         <p class="m-stores">Baixe o app: <a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a></p>
       </div>
     </div>
@@ -140,10 +161,22 @@
     <!-- ================= HERÓI ================= -->
     <section class="hero" id="topo" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true"><div class="hero__aurora"><i></i><i></i><i></i></div><div class="hero__noise"></div><canvas class="hero__grain" data-grain></canvas></div>
+      <span class="aud-anchor" id="voce"></span><span class="aud-anchor" id="empresas"></span>
       <div class="container hero__inner">
-        <h1 class="display hero__title" id="hero-title"><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">empresa</span> <span class="w" style="--i:2">inteira</span> <span class="w" style="--i:3"><span class="rotator" data-words="correndo,|pedalando,|caminhando,|nadando,|treinando,|se mexendo,"><span class="rotator__word">se mexendo,</span></span></span> <span class="w" style="--i:4">com</span> <span class="w" style="--i:5">ranking</span> <span class="w" style="--i:6">e</span> <span class="w" style="--i:7">medalha.</span></h1>
-        <p class="lead hero__lead">Cada treino postado vira ponto para o time. O RH acompanha tudo no painel.</p>
-        <div class="hero__ctas">
+        <div class="aud" role="group" aria-label="Versão da página">
+          <span class="aud__thumb" aria-hidden="true"></span>
+          <a class="aud__opt aud__opt--voce" href="#voce" data-aud-link="voce">Para você</a>
+          <a class="aud__opt aud__opt--empresa" href="#empresas" data-aud-link="empresa">Para sua empresa</a>
+        </div>
+        <h1 class="display hero__title" id="hero-title"><span data-for="voce"><span class="w" style="--i:0">Cada</span> <span class="w" style="--i:1"><span class="rotator" data-words="treino|corrida|pedalada|caminhada|série|braçada"><span class="rotator__word">treino</span></span></span> <span class="w" style="--i:2">vale</span> <span class="w" style="--i:3">ponto,</span> <span class="w" style="--i:4">medalha</span> <span class="w" style="--i:5">e</span> <span class="w" style="--i:6">lugar</span> <span class="w" style="--i:7">no</span> <span class="w" style="--i:8">ranking.</span></span><span data-for="empresa"><span class="w" style="--i:0">A</span> <span class="w" style="--i:1">empresa</span> <span class="w" style="--i:2">inteira</span> <span class="w" style="--i:3"><span class="rotator" data-words="correndo,|pedalando,|caminhando,|nadando,|treinando,|se mexendo,"><span class="rotator__word">se mexendo,</span></span></span> <span class="w" style="--i:4">com</span> <span class="w" style="--i:5">ranking</span> <span class="w" style="--i:6">e</span> <span class="w" style="--i:7">medalha.</span></span></h1>
+        <p class="lead hero__lead" data-for="voce">Entre em desafios, chame alguém pro X1 e dispute torneios com chave. Criar a conta não custa nada.</p>
+        <p class="lead hero__lead" data-for="empresa">Cada treino postado vira ponto para o time. O RH acompanha tudo no painel.</p>
+        <div class="hero__ctas" data-for="voce">
+          <a class="btn btn--primary btn--lg" href="https://app.goteamgo.com.br/register/" data-track="cta-hero-conta">Criar minha conta grátis <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--secondary btn--lg" href="#produto">Ver como funciona</a>
+        </div>
+        <p class="hero__note" data-for="voce">Sem mensalidade. Também na <a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> e no <a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a>.</p>
+        <div class="hero__ctas" data-for="empresa">
           <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-hero">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--secondary btn--lg" href="#produto">Ver o app</a>
         </div>
@@ -152,8 +185,41 @@
 
       <div class="container hero__stage">
         <div class="phones">
+          <!-- Duelo X1 do app (src/pages/x1/x1-single.f7; o cabeçalho real traz o avatar à esquerda e a seta à direita) -->
+          <div class="phones__side phones__side--l" data-for="voce">
+            <div class="device">
+              <div class="app app--phone" role="img" aria-label="Tela de um duelo X1 no app GoTeamGo: Camila venceu Bianca no beach tennis, o duelo está finalizado e a medalha de vencedora aparece no avatar dela.">
+                <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                <div class="fd-head"><span class="fd-me">CR</span><span class="fd-title">Duelo</span><span class="fd-acts"><svg class="i"><use href="#i-refresh"/></svg><svg class="i"><use href="#i-arrow-left"/></svg></span></div>
+                <div class="ph-body x1">
+                  <div class="x1-hero">
+                    <span class="x1-pill is-finished">Finalizado</span>
+                    <div class="x1-duel">
+                      <div class="x1-player"><span class="x1-av av--2">BT</span><b>Bianca Torres</b></div>
+                      <span class="x1-vs">X</span>
+                      <div class="x1-player"><span class="x1-av">CR<i class="x1-medal"></i></span><b>Camila Rocha</b></div>
+                    </div>
+                  </div>
+                  <div class="x1-tabs"><span class="is-active">Resultado</span><span>Informações</span></div>
+                  <div class="x1-card">
+                    <div class="x1-card__head"><b>Resultado</b><span class="x1-st is-done">Finalizado</span></div>
+                    <div class="x1-chips"><div class="x1-chip is-win"><small>Vencedor</small><b>Camila Rocha</b></div><div class="x1-chip"><small>Derrotado</small><b>Bianca Torres</b></div></div>
+                  </div>
+                  <div class="x1-info"><span><small>Modalidade</small>Beach tennis</span><span><small>Resultados</small>2/2</span><span><small>Início</small>02/11/2026</span></div>
+                </div>
+                <div class="ph-tabbar" aria-hidden="true">
+                  <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span class="is-active"><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Ranking do app (src/pages/ranking/ranking.f7) -->
-          <div class="phones__side phones__side--l">
+          <div class="phones__side phones__side--l" data-for="empresa">
             <div class="device">
               <div class="app app--phone" role="img" aria-label="Tela de Ranking do app GoTeamGo: pódio com Logística em 1º, Financeiro em 2º e Comercial em 3º, e a posição do seu grupo.">
                 <div class="ph-status" aria-hidden="true"><span>9:41</span><span class="ph-island"></span><span class="ph-bat"></span></div>
@@ -254,7 +320,7 @@
                   <div class="dh-hello"><span class="dh-hello__av">CR</span><span><small>Bom ter você aqui</small><b>Olá, Camila</b></span><svg class="i"><use href="#i-back"/></svg></div>
                   <div class="dh-card">
                     <label>Próxima ação</label>
-                    <div class="dh-ch"><span>30</span><span><b>30 dias em movimento</b><small>Faltam 12 dias · Grupo TI</small></span></div>
+                    <div class="dh-ch"><span>30</span><span><b>30 dias em movimento</b><small>Faltam 12 dias · <span data-for="voce">Individual</span><span data-for="empresa">Grupo TI</span></small></span></div>
                     <div class="dh-plabel"><span>Seu progresso</span><b>68%</b></div>
                     <div class="dh-bar"><i style="--p:.68"></i></div>
                     <span class="dh-cta">Registrar atividade<svg class="i"><use href="#i-arrow"/></svg></span>
@@ -265,7 +331,13 @@
                     <div class="dh-xp"><strong><small>Nível</small>7</strong><span><b>1.240 XP</b><small>(160 para o próximo nível)</small></span><em>89%</em></div>
                     <div class="dh-bar"><i style="--p:.89"></i></div>
                   </div>
-                  <div class="dh-card">
+                  <div class="dh-card" data-for="voce">
+                    <label>Competição</label>
+                    <b class="dh-h2">Ainda em jogo</b>
+                    <div class="dh-live"><span class="dh-live__ic"><svg class="i"><use href="#i-trophy"/></svg></span><span><b>Copa da Vila</b><small>Torneio em andamento</small></span></div>
+                    <div class="dh-live"><span class="dh-live__ic"><svg class="i"><use href="#i-bolt"/></svg></span><span><b>Nível 7 no X1</b><small>1.240 pontos conquistados</small></span></div>
+                  </div>
+                  <div class="dh-card" data-for="empresa">
                     <label>Agora</label>
                     <b class="dh-h2">Seu ritmo atual</b>
                     <div class="dh-stats"><div><b>2</b><span>desafios ativos</span></div><div><b>1</b><span>disponíveis hoje</span></div><div><b>1.240</b><span>XP</span></div></div>
@@ -291,7 +363,7 @@
     <section class="section section--flush" id="clientes" aria-labelledby="logos-title">
       <div class="container">
         <div class="rail rail--logos" data-reveal>
-          <h2 class="logos-title" id="logos-title">Empresas que já fizeram desafios no GoTeamGo</h2>
+          <h2 class="logos-title" id="logos-title">Empresas e escolas que já fizeram desafios no GoTeamGo</h2>
           <ul class="logos logos--3">
             <li class="logos__cell"><img class="logo-img logo-img--tall" src="img/logo-daiichi-sankyo.webp" width="122" height="120" alt="Daiichi Sankyo" loading="lazy" decoding="async"></li>
             <li class="logos__cell"><img class="logo-img" src="img/logo-jovem-pan.webp" width="179" height="96" alt="Jovem Pan" loading="lazy" decoding="async"></li>
@@ -315,22 +387,226 @@
       </div>
       <template data-trail-items>
         <figure class="trail-item"><img src="img/trail-corrida.webp" width="360" height="450" alt="" decoding="async"></figure>
-        <div class="trail-item trail-item--card"><span class="tag tag--ai">Aprovado pela IA</span><b>Corrida · 5,72 km</b><small>+57 pontos para a Logística</small></div>
+        <div class="trail-item trail-item--card"><span class="tag tag--ai">Aprovado pela IA</span><b>Corrida · 5,72 km</b><small>+57 pontos no desafio</small></div>
         <figure class="trail-item"><img src="img/trail-academia.webp" width="360" height="450" alt="" decoding="async"></figure>
         <div class="trail-item trail-item--card"><span class="ti-medal"><svg class="i"><use href="#i-award"/></svg></span><b>10 km na semana</b><small>Parabéns, você conquistou uma medalha</small></div>
         <figure class="trail-item"><img src="img/trail-camiseta.webp" width="360" height="450" alt="" decoding="async"></figure>
         <div class="trail-item trail-item--card"><small class="ti-kicker">Dados importados do Strava</small><span class="ti-grid"><span><small>Distância</small>22,4 km</span><span><small>Tempo</small>58 min</span></span></div>
         <figure class="trail-item"><img src="img/trail-parque.webp" width="360" height="450" alt="" decoding="async"></figure>
-        <div class="trail-item trail-item--card"><span class="ti-up"><svg class="i"><use href="#i-chart"/></svg></span><b>TI subiu para 4º</b><small>Ranking por grupo</small></div>
+        <div class="trail-item trail-item--card"><span class="ti-up"><svg class="i"><use href="#i-chart"/></svg></span><b>Você subiu para 4º</b><small>Ranking do desafio</small></div>
         <figure class="trail-item"><img src="img/trail-academia-2.webp" width="360" height="450" alt="" decoding="async"></figure>
         <figure class="trail-item"><img src="img/trail-palco.webp" width="360" height="450" alt="" decoding="async"></figure>
       </template>
     </section>
 
     <!-- ================= TOUR DO PRODUTO ================= -->
-    <section class="section section--flush" id="produto" aria-labelledby="tour-title">
+    <section class="section section--flush" id="produto" aria-label="Como funciona">
       <div class="container">
         <div class="rail">
+          <div data-for="voce">
+          <div class="section-head tour-head">
+            <h2 class="h2" data-words>Do primeiro treino ao pódio.</h2>
+          </div>
+          <div class="tour" data-tour>
+            <nav class="tour__nav" aria-label="Partes do app">
+              <div class="tour__sticky">
+                <ul class="tour__list">
+                  <li><a class="tour__link" href="#desafios" data-tour-link>Desafios abertos</a></li>
+                  <li><a class="tour__link" href="#x1" data-tour-link>Duelo X1</a></li>
+                  <li><a class="tour__link" href="#torneio" data-tour-link>Torneios</a></li>
+                </ul>
+              </div>
+            </nav>
+            <div class="tour__chapters">
+
+              <!-- Capítulo 1: desafio aberto (single-challenge.f7 + folha pago/grátis de enter-with-new-group.f7) e Pix (pagarme-payment.f7) -->
+              <article class="chapter" id="desafios" aria-labelledby="cap-v1">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-v1" data-words>Escolha o desafio e entre do seu jeito. <span class="soft">Sozinho, com o código do grupo ou com um grupo novo.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="duo" data-scene="challenge">
+                    <div class="device">
+                      <div class="app app--phone" role="img" aria-label="Demonstração da página de um desafio aberto no app: Novembro 100 km, com 18 grupos e 124 pessoas; a pessoa toca em Entrar no desafio individualmente e escolhe entrar como pago para disputar o pódio dos pagantes.">
+                        <div class="ph-status" aria-hidden="true"><span>7:18</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="cp-top"><b>Desafio</b><span><svg class="i"><use href="#i-list"/></svg>Ir para lista de desafios</span></div>
+                        <div class="ph-body cp">
+                          <div class="cp-hero">
+                            <div class="cp-hero__top">
+                              <span class="cp-hero__av"><svg class="i"><use href="#i-activity"/></svg></span>
+                              <span class="cp-hero__txt"><span class="cp-badge">Ambos</span><b>Novembro 100 km</b><small>01/11/2026 Até 30/11/2026</small></span>
+                            </div>
+                            <div class="cp-metrics"><span><b>18</b>Grupos</span><span><b>124</b>Individuais</span><span><b>∞</b>Limite de posts</span></div>
+                            <span class="cp-btn">Entrar no desafio<br>com o código do grupo</span>
+                            <span class="cp-btn cp-btn--line">Entrar no desafio<br>com um novo grupo</span>
+                            <span class="cp-btn cp-btn--line" data-solo>Entrar no desafio<br>individualmente</span>
+                            <small class="cp-help">Escolha como você quer entrar no desafio.</small>
+                          </div>
+                          <div class="cp-sheet is-shown" data-sheet>
+                            <span class="cp-sheet__badge"><i></i>Pódio dos pagantes</span>
+                            <div class="cp-sheet__hero"><svg class="i"><use href="#i-trophy"/></svg><b>Prêmios em dinheiro (opcional)</b><small>Escolha como deseja entrar neste desafio: modo pago ou modo grátis.</small></div>
+                            <div class="cp-sheet__price"><small>Valor por participante</small><b>R$ 20,00</b></div>
+                            <span class="cp-choice is-picked" data-pay><b>Entrar como pago</b><small>Participar no pódio pago por R$ 20,00 por participante.</small></span>
+                            <span class="cp-choice"><b>Entrar como grátis</b><small>Participar normalmente, sem cobrança.</small></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="device device--b">
+                      <div class="app app--phone" role="img" aria-label="Demonstração do pagamento da inscrição por Pix: R$ 20,00, QR Code, o código Pix é copiado e o pagamento é confirmado.">
+                        <div class="ph-status" aria-hidden="true"><span>7:19</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                        <div class="ph-head"><svg class="i"><use href="#i-back"/></svg><span class="ph-head__title">Pagamento da inscrição</span><span class="ph-head__gap"></span></div>
+                        <div class="ph-body pay" data-pay-state="after">
+                          <div class="pay-sum"><small>Inscrição</small><b>Novembro 100 km</b><strong>R$ 20,00</strong></div>
+                          <div class="pay-pix" data-show="before">
+                            <p><svg class="i"><use href="#i-qr"/></svg>Escaneie o QR Code ou copie o código Pix.</p>
+                            <svg class="pay-qr" viewBox="-2 -2 29 29" aria-hidden="true"><path d="M0 0h7v1h-7zM8 0h1v1h-1zM10 0h2v1h-2zM14 0h1v1h-1zM18 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h2v1h-2zM16 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h1v1h-1zM12 2h1v1h-1zM18 2h1v1h-1zM20 2h3v1h-3zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM11 3h2v1h-2zM14 3h3v1h-3zM18 3h1v1h-1zM20 3h3v1h-3zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h2v1h-2zM14 4h2v1h-2zM18 4h1v1h-1zM20 4h3v1h-3zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h2v1h-2zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h7v1h-7zM9 6h6v1h-6zM18 6h7v1h-7zM8 7h1v1h-1zM10 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM5 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM17 8h1v1h-1zM19 8h2v1h-2zM22 8h1v1h-1zM4 9h5v1h-5zM10 9h1v1h-1zM14 9h1v1h-1zM16 9h2v1h-2zM19 9h1v1h-1zM21 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM6 10h3v1h-3zM10 10h1v1h-1zM15 10h2v1h-2zM18 10h1v1h-1zM21 10h1v1h-1zM2 11h2v1h-2zM6 11h3v1h-3zM11 11h1v1h-1zM14 11h1v1h-1zM16 11h3v1h-3zM24 11h1v1h-1zM1 12h1v1h-1zM7 12h3v1h-3zM15 12h1v1h-1zM17 12h2v1h-2zM20 12h1v1h-1zM22 12h2v1h-2zM0 13h2v1h-2zM8 13h1v1h-1zM13 13h6v1h-6zM21 13h3v1h-3zM0 14h2v1h-2zM3 14h1v1h-1zM6 14h4v1h-4zM12 14h1v1h-1zM15 14h2v1h-2zM18 14h3v1h-3zM0 15h8v1h-8zM11 15h1v1h-1zM17 15h2v1h-2zM4 16h1v1h-1zM8 16h3v1h-3zM16 16h2v1h-2zM19 16h1v1h-1zM8 17h1v1h-1zM12 17h1v1h-1zM14 17h3v1h-3zM18 17h1v1h-1zM21 17h1v1h-1zM24 17h1v1h-1zM0 18h7v1h-7zM8 18h1v1h-1zM10 18h4v1h-4zM16 18h2v1h-2zM20 18h2v1h-2zM23 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM10 19h2v1h-2zM20 19h2v1h-2zM23 19h1v1h-1zM0 20h1v1h-1zM2 20h3v1h-3zM6 20h1v1h-1zM8 20h2v1h-2zM13 20h1v1h-1zM15 20h1v1h-1zM17 20h1v1h-1zM21 20h1v1h-1zM0 21h1v1h-1zM2 21h3v1h-3zM6 21h1v1h-1zM8 21h1v1h-1zM14 21h1v1h-1zM16 21h2v1h-2zM20 21h3v1h-3zM0 22h1v1h-1zM2 22h3v1h-3zM6 22h1v1h-1zM9 22h4v1h-4zM14 22h2v1h-2zM17 22h4v1h-4zM22 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM10 23h1v1h-1zM18 23h2v1h-2zM22 23h1v1h-1zM24 23h1v1h-1zM0 24h7v1h-7zM9 24h6v1h-6zM16 24h3v1h-3zM21 24h1v1h-1zM23 24h2v1h-2z"/></svg>
+                            <span class="pay-btn" data-copy>Copiar código Pix</span>
+                            <span class="pay-btn pay-btn--line">Verificar pagamento</span>
+                          </div>
+                          <div class="pay-ok" data-show="after">
+                            <span class="pay-ok__ic"><svg class="i"><use href="#i-check"/></svg></span>
+                            <b>Pagamento confirmado!</b>
+                            <small>Você já pode participar do desafio.</small>
+                            <span class="pay-btn">Ir para o desafio</span>
+                          </div>
+                          <span class="ph-toast" data-copied><svg class="i"><use href="#i-check"/></svg>Código Pix copiado.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5 19 11l-6.3 1.7L9.6 19z" fill="#051a2b" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Capítulo 2: duelo X1 (x1-single.f7) e o card do ranking de duelo (challenge-for-x1.f7) -->
+              <article class="chapter" id="x1" aria-labelledby="cap-v2">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-v2" data-words>Chame alguém pro X1. <span class="soft">Você escolhe a modalidade e o local, e os duelos sobem o seu nível.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="stage-split x1-stage" data-scene="duel">
+                    <div class="device">
+                      <div class="app app--phone" role="img" aria-label="Demonstração de um duelo X1: Bianca desafia Camila no beach tennis, Camila aceita, informa que venceu, o duelo fica finalizado e a medalha de vencedora aparece.">
+                        <div class="ph-status" aria-hidden="true"><span>18:40</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                <div class="fd-head"><span class="fd-me">CR</span><span class="fd-title">Duelo</span><span class="fd-acts"><svg class="i"><use href="#i-refresh"/></svg><svg class="i"><use href="#i-arrow-left"/></svg></span></div>
+                <div class="ph-body x1" data-x1="after">
+                  <div class="x1-hero">
+                    <span class="x1-pill is-finished" data-pill>Finalizado</span>
+                    <div class="x1-duel">
+                      <div class="x1-player"><span class="x1-av av--2">BT</span><b>Bianca Torres</b></div>
+                      <span class="x1-vs">X</span>
+                      <div class="x1-player"><span class="x1-av">CR<i class="x1-medal"></i></span><b>Camila Rocha</b></div>
+                    </div>
+                  </div>
+                  <div class="x1-tabs"><span class="is-active">Resultado</span><span>Informações</span></div>
+                  <div class="x1-card" data-show="wait">
+                    <div class="x1-card__head"><b>Aceitar desafio duelo</b><span class="x1-st is-pending"><svg class="i"><use href="#i-clock"/></svg>Pendente</span></div>
+                    <span class="x1-btn" data-accept>Aceitar duelo</span>
+                    <span class="x1-btn x1-btn--line">Recusar duelo</span>
+                  </div>
+                  <div class="x1-card" data-show="play">
+                    <div class="x1-card__head"><b>Enviar resultado</b><span class="x1-step">Passo 1/4</span></div>
+                    <small class="x1-q">Quem venceu?</small>
+                    <span class="x1-choice">Bianca Torres</span>
+                    <span class="x1-choice" data-winner>Camila Rocha</span>
+                  </div>
+                  <div class="x1-card" data-show="after">
+                    <div class="x1-card__head"><b>Resultado</b><span class="x1-st is-done">Finalizado</span></div>
+                    <div class="x1-chips"><div class="x1-chip is-win"><small>Vencedor</small><b>Camila Rocha</b></div><div class="x1-chip"><small>Derrotado</small><b>Bianca Torres</b></div></div>
+                  </div>
+                  <div class="x1-info"><span><small>Modalidade</small>Beach tennis</span><span><small>Resultados</small>2/2</span><span><small>Início</small>02/11/2026</span></div>
+                </div>
+                        <div class="ph-tabbar" aria-hidden="true">
+                  <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span class="is-active"><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+                      </div>
+                    </div>
+                    <div class="x1-me" aria-hidden="true">
+                      <span class="x1-me__badge">Você</span>
+                      <b class="x1-me__title">Seu progresso atual no ranking de duelo</b>
+                      <div class="x1-me__stats"><span><small>Pontos duelo</small><strong data-pts data-count="445">445</strong></span><span><small>Seu nível</small><strong>Nível 4</strong></span></div>
+                      <div class="x1-me__band"><span>Faixa 300 - 450</span><em data-pct>97%</em></div>
+                      <div class="x1-me__bar"><i data-bar style="--p:.97"></i></div>
+                      <small data-next>Próximo nível em 5 pts</small>
+                    </div>
+                    <div class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5 19 11l-6.3 1.7L9.6 19z" fill="#051a2b" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Capítulo 3: torneio, aba Chaveamento (tournaments-single.f7) -->
+              <article class="chapter" id="torneio" aria-labelledby="cap-v3">
+                <div class="chapter__head">
+                  <h3 class="h3" id="cap-v3" data-words>Torneio com chave até sair o campeão. <span class="soft">De 2 a 256 pessoas, aberto ou com senha.</span></h3>
+                </div>
+                <div class="chapter__stage dots-bg">
+                  <div class="device">
+                    <div class="app app--phone" data-scene="bracket" role="img" aria-label="Demonstração do chaveamento de um torneio no app: Camila e Bianca vencem as semifinais, a chave anda até a final e Camila aparece como campeã da Copa da Vila.">
+                      <div class="ph-status" aria-hidden="true"><span>21:05</span><span class="ph-island"></span><span class="ph-bat"></span></div>
+                      <div class="fd-head"><span class="fd-me">CR</span><span class="fd-title">Torneio</span><span class="fd-acts"><svg class="i"><use href="#i-arrow-left"/></svg></span></div>
+                      <div class="ph-body tr">
+                        <div class="tr-hero">
+                          <span class="tr-cover"><svg class="i"><use href="#i-trophy"/></svg></span>
+                          <span class="tr-info">
+                            <span class="tr-badges"><span class="tr-st is-done" data-st>Finalizado</span><span class="tr-mode">Individual</span></span>
+                            <b>Copa da Vila</b>
+                            <span class="tr-owner"><i>RN</i>Rafael Nunes</span>
+                            <small>02/11/2026 · Inscrito</small>
+                          </span>
+                        </div>
+                        <div class="tr-tabs" aria-hidden="true"><span><svg class="i"><use href="#i-flag"/></svg>Confrontos</span><span><svg class="i"><use href="#i-grid"/></svg>Visão geral</span><span><svg class="i"><use href="#i-users"/></svg>Participantes</span><span class="is-active"><svg class="i"><use href="#i-award"/></svg>Chaveamento</span></div>
+                        <div class="tr-card">
+                          <div class="tr-card__head"><b>Chaveamento</b><span class="tr-legend"><i></i>Classificado<i class="is-pend"></i>Pendente</span></div>
+                          <div class="tr-tree" data-tree>
+                            <div class="tr-col">
+                              <span class="tr-col__h">Semifinal<small>2 partidas</small></span>
+                              <div class="tr-match"><small>#1</small>
+                                <span class="tr-p is-adv" data-res="adv" data-r="1"><span class="tr-av">CR</span>Camila R.<em>Passou</em></span>
+                                <span class="tr-vs">VS</span>
+                                <span class="tr-p is-out" data-res="out" data-r="1"><span class="tr-av av--3">DM</span>Diego M.<em>Saiu</em></span>
+                              </div>
+                              <div class="tr-match"><small>#2</small>
+                                <span class="tr-p is-out" data-res="out" data-r="2"><span class="tr-av av--5">RN</span>Rafael N.<em>Saiu</em></span>
+                                <span class="tr-vs">VS</span>
+                                <span class="tr-p is-adv" data-res="adv" data-r="2"><span class="tr-av av--2">BT</span>Bianca T.<em>Passou</em></span>
+                              </div>
+                            </div>
+                            <div class="tr-col" data-col="final">
+                              <span class="tr-col__h">Final<small>1 partida</small></span>
+                              <div class="tr-match"><small>#3</small>
+                                <span class="tr-p is-adv" data-res="adv" data-r="3" data-slot="1"><span class="tr-av">CR</span>Camila R.<em>Passou</em></span>
+                                <span class="tr-vs">VS</span>
+                                <span class="tr-p is-out" data-res="out" data-r="3" data-slot="2"><span class="tr-av av--2">BT</span>Bianca T.<em>Saiu</em></span>
+                              </div>
+                            </div>
+                            <div class="tr-col" data-col="champ">
+                              <span class="tr-col__h">Campeão<small>Resultado final</small></span>
+                              <div class="tr-champ" data-champ><span class="tr-champ__seal"><svg class="i"><use href="#i-award"/></svg></span><span class="tr-champ__av">CR</span><b>Camila R.</b><small>Vencedor do torneio</small></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ph-tabbar" aria-hidden="true">
+                  <span><svg class="i"><use href="#i-sparkle"/></svg>Feed</span>
+                  <span class="is-active"><svg class="i"><use href="#i-rocket"/></svg>Desafios</span>
+                  <span class="ph-tabbar__plus"><svg class="i"><use href="#i-plus"/></svg></span>
+                  <span><svg class="i"><use href="#i-chart"/></svg>Ranking</span>
+                  <span><svg class="i"><use href="#i-users"/></svg>Grupos</span>
+                </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+          </div>
+          <div data-for="empresa">
           <div class="section-head tour-head">
             <h2 class="h2" id="tour-title" data-words>Do primeiro post ao relatório da diretoria.</h2>
           </div>
@@ -575,18 +851,41 @@
 
             </div>
           </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ================= BENTO (seção escura) ================= -->
-    <section class="section section--dark" aria-labelledby="bento-title">
+    <section class="section section--dark" aria-label="Recursos">
       <div class="container">
         <div class="section-head">
-          <h2 class="h2" id="bento-title" data-words>O que segura o time até o último dia.</h2>
+          <h2 class="h2" data-words data-for="voce">O que faz você treinar de novo amanhã.</h2>
+          <h2 class="h2" data-words data-for="empresa">O que segura o time até o último dia.</h2>
         </div>
         <div class="bento">
-          <div class="bento__cell bento__cell--wide" data-reveal>
+          <div class="bento__cell bento__cell--wide bento__cell--lead" data-reveal data-for="voce">
+            <div class="bento__visual">
+              <div class="feed" data-scene="queue" data-interval="2400" role="img" aria-label="Feed da galera com curtidas, comentários, medalhas e mudanças no ranking chegando.">
+                <div data-rows data-max="4">
+                  <div class="feed__item" data-enter><span class="av av--5">RN</span><span><b>Rafael</b> curtiu a corrida da <b>Camila</b></span><svg class="i feed__ic"><use href="#i-heart"/></svg><span class="feed__time">2 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--3">PL</span><span><b>Pace Livre</b> passou o Pedal Serra no ranking</span><svg class="i feed__ic"><use href="#i-chart"/></svg><span class="feed__time">14 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--6">AB</span><span><b>Aline</b> conquistou a medalha 10 km na semana</span><svg class="i feed__ic"><use href="#i-award"/></svg><span class="feed__time">38 min</span></div>
+                  <div class="feed__item" data-enter><span class="av av--2">BC</span><span><b>Bruno</b> comentou: amanhã tem mais</span><svg class="i feed__ic"><use href="#i-message"/></svg><span class="feed__time">1 h</span></div>
+                </div>
+                <template data-queue>
+                  <div class="feed__item"><span class="av av--3">DM</span><span><b>Diego</b> postou Ciclismo ao ar livre · 18 km</span><svg class="i feed__ic"><use href="#i-activity"/></svg><span class="feed__time">agora</span></div>
+                  <div class="feed__item"><span class="av av--4">JF</span><span><b>Juliana</b> marcou o <b>Pedro</b> na caminhada</span><svg class="i feed__ic"><use href="#i-users"/></svg><span class="feed__time">agora</span></div>
+                  <div class="feed__item"><span class="av av--5">CR</span><span><b>Você</b> subiu para o 4º lugar</span><svg class="i feed__ic"><use href="#i-chart"/></svg><span class="feed__time">agora</span></div>
+                </template>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Feed da galera</h3>
+              <p class="body">Curtidas, comentários e quem treinou junto.</p>
+            </div>
+          </div>
+          <div class="bento__cell bento__cell--wide bento__cell--lead" data-reveal data-for="empresa">
             <div class="bento__visual">
               <div class="feed" data-scene="queue" data-interval="2400" role="img" aria-label="Feed do time com curtidas, comentários, medalhas e mudanças no ranking chegando.">
                 <div data-rows data-max="4">
@@ -619,11 +918,24 @@
               </div>
             </div>
             <div class="bento__text">
-              <h3 class="h4">Conecta com o que o time já usa</h3>
+              <h3 class="h4">Conecta com o que <span data-for="voce">você</span><span data-for="empresa">o time</span> já usa</h3>
               <p class="body">Strava, Google Health e Pix ou cartão.</p>
             </div>
           </div>
-          <div class="bento__cell" data-reveal>
+          <div class="bento__cell" data-reveal data-for="voce">
+            <div class="bento__visual">
+              <div class="toggles" aria-hidden="true">
+                <div class="toggle-row"><svg class="i"><use href="#i-trophy"/></svg>Chave de 8 participantes</div>
+                <div class="toggle-row"><svg class="i"><use href="#i-users"/></svg>Entrada individual ou em grupo</div>
+                <div class="toggle-row"><svg class="i"><use href="#i-key"/></svg>Privado, senha de 4 números<span class="switch is-on"></span></div>
+              </div>
+            </div>
+            <div class="bento__text">
+              <h3 class="h4">Monte o seu torneio</h3>
+              <p class="body">Aberto ou com senha, sozinho ou em grupo.</p>
+            </div>
+          </div>
+          <div class="bento__cell" data-reveal data-for="empresa">
             <div class="bento__visual">
               <div class="toggles" aria-hidden="true">
                 <div class="toggle-row"><svg class="i"><use href="#i-camera"/></svg>Foto tirada na hora<span class="switch is-on"></span></div>
@@ -674,10 +986,39 @@
     </section>
 
     <!-- ================= COMO FUNCIONA ================= -->
-    <section class="section" aria-labelledby="steps-title">
-      <div class="container">
+    <section class="section" aria-label="Como começar">
+      <div class="container" data-for="voce">
         <div class="section-head section-head--center">
-          <h2 class="h2" id="steps-title" data-words>Da demonstração ao primeiro post.</h2>
+          <h2 class="h2" data-words>Do cadastro ao primeiro ponto.</h2>
+          <p class="lead" data-reveal>Leva poucos minutos e não pede cartão.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num">1</span>
+            <div><h3 class="h4">Crie sua conta</h3><p class="body">No app ou no navegador, sem mensalidade.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-user"/></svg>Conta criada<span class="step__meta">Grátis</span></div>
+            </div>
+          </li>
+          <li class="step" data-reveal style="--d:80ms">
+            <span class="step__num">2</span>
+            <div><h3 class="h4">Escolha um desafio</h3><p class="body">Grátis ou valendo prêmio, sozinho ou em grupo.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-rocket"/></svg>Novembro 100 km<span class="step__meta">Ambos</span></div>
+            </div>
+          </li>
+          <li class="step" data-reveal style="--d:160ms">
+            <span class="step__num">3</span>
+            <div><h3 class="h4">Poste o treino</h3><p class="body">Foto, Strava ou passos viram ponto.</p></div>
+            <div class="step__ui" aria-hidden="true">
+              <div class="toggle-row"><svg class="i"><use href="#i-activity"/></svg>Corrida · 5,72 km<span class="step__meta">+57 pts</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="container" data-for="empresa">
+        <div class="section-head section-head--center">
+          <h2 class="h2" data-words>Da demonstração ao primeiro post.</h2>
           <p class="lead" data-reveal>Sem treinamento: entrou pelo link, já posta.</p>
         </div>
         <ol class="steps">
@@ -707,10 +1048,46 @@
     </section>
 
     <!-- ================= FAQ ================= -->
-    <section class="section section--line" id="perguntas" aria-labelledby="faq-title">
-      <div class="container faq">
+    <section class="section section--line" id="perguntas" aria-label="Perguntas frequentes">
+      <div class="container faq" data-for="voce">
         <div class="faq__intro">
-          <h2 class="h2" id="faq-title" data-words>Perguntas antes de rodar o primeiro desafio.</h2>
+          <h2 class="h2" data-words>Perguntas antes do primeiro treino valendo ponto.</h2>
+          <p class="body" data-reveal>Não achou a sua? Escreva para <a class="link" href="mailto:contato@goteamgo.com.br">contato@goteamgo.com.br</a>.</p>
+        </div>
+        <div class="faq__list" data-reveal style="--d:80ms">
+          <details class="faq__item" name="faq-voce">
+            <summary>Quanto custa?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Criar a conta e usar o app não custa nada. Alguns desafios cobram inscrição, com o valor definido por quem organiza. Quando o desafio aceita os dois modos, dá para entrar de graça e só não disputar o prêmio.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Como funciona o prêmio em dinheiro?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Nos desafios com pódio dos pagantes, o prêmio é a soma das inscrições de quem escolheu pagar e é dividido entre o Top 3 desse ranking. A cobrança acontece no primeiro post, por Pix ou cartão.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Preciso de relógio ou Strava?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Não. A foto do treino já vale. Quem usa Strava ou Google Health pode importar a atividade ou os passos.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Como funciona o X1?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Você escolhe a pessoa, a modalidade e o local e manda o desafio. Depois do confronto, cada um informa quem venceu. Se os resultados não batem, quem administra o duelo decide.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Posso criar um torneio com os amigos?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Pode. Você escolhe o tamanho da chave, de 2 a 256 pessoas, se a entrada é individual ou em grupo e se o torneio é aberto ou com senha de 4 números.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Como vocês evitam trapaça?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Cada desafio escolhe a prova: foto no local, foto tirada na hora, início e fim da atividade, Strava ou passos do Google Health. Os posts passam por aprovação manual, automática ou pela IA, e qualquer pessoa pode denunciar um post.</p>
+          </details>
+          <details class="faq__item" name="faq-voce">
+            <summary>Funciona no iPhone e no Android?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p class="faq__answer">Funciona. Tem app na <a class="link" href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> e no <a class="link" href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a>, e também abre no navegador do celular.</p>
+          </details>
+        </div>
+      </div>
+      <div class="container faq" data-for="empresa">
+        <div class="faq__intro">
+          <h2 class="h2" data-words>Perguntas antes de rodar o primeiro desafio.</h2>
           <p class="body" data-reveal>Não achou a sua? Escreva para <a class="link" href="mailto:contato@goteamgo.com.br">contato@goteamgo.com.br</a> ou fale com a equipe.</p>
           <div class="btn-row" data-reveal style="--d:80ms"><a class="btn btn--secondary" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20GoTeamGo." target="_blank" rel="noopener" data-track="cta-faq">Falar com a equipe</a></div>
         </div>
@@ -748,16 +1125,27 @@
     </section>
 
     <!-- ================= CTA FINAL ================= -->
-    <section class="section section--snug-top" id="comecar" aria-labelledby="cta-title">
+    <section class="section section--snug-top" id="comecar" aria-label="Comece agora">
       <div class="container">
         <div class="cta-panel" data-reveal>
           <div class="cta-panel__aurora" aria-hidden="true"><i></i><i></i></div>
-          <h2 class="h2" id="cta-title" data-words>Coloque a empresa no ranking. <span class="soft">Veja o GoTeamGo montado para a sua campanha.</span></h2>
+          <div data-for="voce">
+            <h2 class="h2" data-words>Seu próximo treino já pode valer ponto. <span class="soft">Crie a conta e entre num desafio hoje.</span></h2>
+            <div class="btn-row">
+              <a class="btn btn--primary btn--lg" href="https://app.goteamgo.com.br/register/" data-track="cta-final-conta">Criar minha conta grátis <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn--secondary btn--lg" href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener" data-track="cta-final-ios">App Store</a>
+              <a class="btn btn--secondary btn--lg" href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener" data-track="cta-final-android">Google Play</a>
+            </div>
+            <p class="cta-panel__note">Sem mensalidade. Tem uma empresa? <a href="#empresas" data-aud-link="empresa">Veja o GoTeamGo para empresas</a>.</p>
+          </div>
+          <div data-for="empresa">
+          <h2 class="h2" data-words>Coloque a empresa no ranking. <span class="soft">Veja o GoTeamGo montado para a sua campanha.</span></h2>
           <div class="btn-row">
             <a class="btn btn--primary btn--lg" href="https://wa.me/5512988321916?text=Ol%C3%A1%2C%20quero%20ver%20uma%20demonstra%C3%A7%C3%A3o%20do%20GoTeamGo%20para%20a%20minha%20empresa." target="_blank" rel="noopener" data-track="cta-final">Pedir demonstração <svg class="i i-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn--secondary btn--lg" href="mailto:contato@goteamgo.com.br?subject=Demonstra%C3%A7%C3%A3o%20do%20GoTeamGo" data-track="cta-final-email">Escrever para o contato</a>
           </div>
           <p class="cta-panel__note">Demonstração sem compromisso. O app está na <a href="https://apps.apple.com/br/app/goteamgo/id6756112455" target="_blank" rel="noopener">App Store</a> e no <a href="https://play.google.com/store/apps/details?id=br.com.goteamgo.app.twa" target="_blank" rel="noopener">Google Play</a>.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -768,11 +1156,13 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a class="brand" href="#topo"><svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>GoTeamGo</a>
-          <p class="footer__about">Desafios entre times para bem-estar, ESG, cultura e eventos.</p>
+          <p class="footer__about">Desafios, duelos X1 e torneios para quem treina, e campanhas de bem-estar e ESG para empresas.</p>
+          <p class="footer__aud"><a href="#voce" data-aud-link="voce">Para você</a> · <a href="#empresas" data-aud-link="empresa">Para empresas</a></p>
         </div>
         <nav class="footer__col" aria-labelledby="f-produto">
           <h2 id="f-produto">Produto</h2>
-          <ul><li><a href="#ranking">Ranking por time</a></li><li><a href="#atividade">Atividade com prova</a></li><li><a href="#painel">Painel do RH</a></li><li><a href="#evento">Dia do evento</a></li></ul>
+          <ul data-for="voce"><li><a href="#desafios">Desafios abertos</a></li><li><a href="#x1">Duelo X1</a></li><li><a href="#torneio">Torneios</a></li><li><a href="#posts">Foto, Strava ou passos</a></li></ul>
+          <ul data-for="empresa"><li><a href="#ranking">Ranking por time</a></li><li><a href="#atividade">Atividade com prova</a></li><li><a href="#painel">Painel do RH</a></li><li><a href="#evento">Dia do evento</a></li></ul>
         </nav>
         <nav class="footer__col" aria-labelledby="f-solucoes">
           <h2 id="f-solucoes">Soluções</h2>
