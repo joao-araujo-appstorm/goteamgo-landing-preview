@@ -1184,6 +1184,155 @@
     },
   };
 
+  // Social: o story enche e passa para a próxima pessoa; no outro celular chega uma curtida com aviso,
+  // a gaveta de comentários abre e entra um comentário novo.
+  const fmtInt = (n) => new Intl.NumberFormat(LANG).format(n);
+  recipes.social = {
+    reset: 'fade',
+    arm(el) {
+      const st = el.querySelector('.st');
+      if (st) st.dataset.st = 'a';
+      const seg = el.querySelector('[data-st-seg]');
+      if (seg) { seg.classList.remove('is-done'); if (!seg.firstElementChild) seg.appendChild(document.createElement('b')); }
+      const like = el.querySelector('[data-so-like]');
+      if (like) like.classList.remove('is-liked', 'is-pop');
+      el.querySelectorAll('[data-so-count], [data-so-count2]').forEach((n) => { n.textContent = '23'; });
+      const cmt = el.querySelector('[data-cmt]');
+      if (cmt) cmt.classList.remove('is-shown');
+      const fresh = el.querySelector('[data-cmt-new]');
+      if (fresh) fresh.hidden = true;
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      const fill = async (seg, ms) => {
+        const bar = seg && seg.firstElementChild;
+        if (!bar) return;
+        const a = bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: ms, easing: 'linear', fill: 'forwards' });
+        await Promise.race([a.finished, api.wait(ms + 50)]);
+        api.check();
+      };
+      const story = async () => {
+        await fill(el.querySelector('[data-st-seg]'), 4200);
+        const st = el.querySelector('.st');
+        if (st) st.dataset.st = 'b';
+        const name = el.querySelector('[data-st-name]');
+        if (name) name.textContent = '@rafael.n';
+        const av = el.querySelector('[data-st-av]');
+        if (av) { av.textContent = 'RN'; av.classList.replace('av--2', 'av--5'); }
+        const prog = el.querySelector('[data-st-prog]');
+        if (prog) prog.innerHTML = '<i><b></b></i>';
+        await fill(prog && prog.firstElementChild, 4400);
+      };
+      const post = async () => {
+        await api.wait(1200);
+        const like = el.querySelector('[data-so-like]');
+        if (like) like.classList.add('is-liked', 'is-pop');
+        el.querySelectorAll('[data-so-count], [data-so-count2]').forEach((n) => { n.textContent = '24'; n.classList.add('is-pop'); });
+        const push = el.querySelector('[data-push]');
+        if (push) push.classList.add('is-shown');
+        await api.wait(2200);
+        if (push) push.classList.remove('is-shown');
+        const open = el.querySelector('[data-so-comments]');
+        await cursorTo(api, open);
+        const cmt = el.querySelector('[data-cmt]');
+        if (cmt) cmt.classList.add('is-shown');
+        await api.wait(1300);
+        const fresh = el.querySelector('[data-cmt-new]');
+        if (fresh) { fresh.hidden = false; fresh.classList.add('is-highlight'); appear(fresh, -8, 480); }
+        await api.wait(2400);
+      };
+      await Promise.all([story(), post()]);
+      await api.wait(1400);
+    },
+  };
+
+  // Conquistas: a medalha "100 km no mês" desbloqueia com o aviso real, os pontos do perfil sobem
+  // e a trilha de evolução passa do nível 12 para o 13.
+  recipes.trophy = {
+    reset: 'fade',
+    arm(el) {
+      const medal = el.querySelector('[data-pf-medal]');
+      if (medal) medal.classList.add('is-locked');
+      const won = el.querySelector('[data-pf-won]');
+      if (won) won.textContent = '4';
+      const pts = el.querySelector('[data-pf-pts]');
+      if (pts) { pts.dataset.count = '2140'; pts.textContent = fmtInt(2140); }
+      const set = (sel, v) => { const n = el.querySelector(sel); if (n) n.textContent = v; };
+      set('[data-lv-pill]', 'Nível 12');
+      set('[data-lv-text]', 'Progresso no nível: 2.140 / 2.200 Pontos (140 / 200 no nível)');
+      set('[data-lv-next]', 'Próximo nível em: 60 Pontos');
+      const bar = el.querySelector('[data-lv-bar]');
+      if (bar) bar.style.setProperty('--p', '0.7');
+      const l12 = el.querySelector('[data-lv-12]');
+      const l13 = el.querySelector('[data-lv-13]');
+      if (l12) l12.className = 'lv__lvl is-now';
+      if (l13) l13.className = 'lv__lvl is-lock';
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      await api.wait(1100);
+      const medal = el.querySelector('[data-pf-medal]');
+      if (medal) { medal.classList.remove('is-locked'); medal.classList.add('is-unlock'); }
+      const won = el.querySelector('[data-pf-won]');
+      if (won) { won.textContent = '5'; won.classList.add('is-pop'); }
+      const push = el.querySelector('[data-push]');
+      if (push) push.classList.add('is-shown');
+      const pts = el.querySelector('[data-pf-pts]');
+      if (pts) { pts.dataset.count = '2200'; countTo(api, pts, 2200, 1000, 2140).catch(() => {}); }
+      await api.wait(1400);
+      const bar = el.querySelector('[data-lv-bar]');
+      if (bar) bar.style.setProperty('--p', '1');
+      const set = (sel, v) => { const n = el.querySelector(sel); if (n) n.textContent = v; };
+      set('[data-lv-text]', 'Progresso no nível: 2.200 / 2.200 Pontos (200 / 200 no nível)');
+      await api.wait(900);
+      const l12 = el.querySelector('[data-lv-12]');
+      const l13 = el.querySelector('[data-lv-13]');
+      if (l12) l12.className = 'lv__lvl is-done';
+      if (l13) l13.className = 'lv__lvl is-now is-pop';
+      const pill = el.querySelector('[data-lv-pill]');
+      if (pill) { pill.textContent = 'Nível 13'; pill.classList.add('is-pop'); }
+      if (bar) bar.style.setProperty('--p', '0');
+      set('[data-lv-text]', 'Progresso no nível: 2.200 / 2.420 Pontos (0 / 220 no nível)');
+      set('[data-lv-next]', 'Próximo nível em: 220 Pontos');
+      await api.wait(1800);
+      if (push) push.classList.remove('is-shown');
+      await api.wait(2800);
+    },
+  };
+
+  // Jogo: os eventos aparecem em sequência (pontos, ranking, submeta), a medalha desbloqueia com raios
+  // e confete e a barra de XP enche até o nível 13.
+  recipes.game = {
+    reset: 'fade',
+    arm(el) {
+      el.querySelectorAll('[data-chip]').forEach((c) => c.classList.remove('is-in'));
+      const card = el.querySelector('.gm-card');
+      if (card) { card.classList.add('is-locked'); card.classList.remove('is-unlock', 'is-burst'); }
+      const xp = el.querySelector('[data-gm-xp]');
+      if (xp) xp.style.setProperty('--p', '0.82');
+    },
+    async play(api) {
+      const { el } = api;
+      if (!api.entrance) { await api.wait(2600); return; }
+      const chips = [...el.querySelectorAll('[data-chip]')];
+      await api.wait(500);
+      for (const c of chips.slice(0, 3)) { c.classList.add('is-in'); await api.wait(850); }
+      const card = el.querySelector('.gm-card');
+      if (card) { card.classList.remove('is-locked'); card.classList.add('is-unlock', 'is-burst'); }
+      await api.wait(900);
+      const xp = el.querySelector('[data-gm-xp]');
+      if (xp) xp.style.setProperty('--p', '1');
+      await api.wait(700);
+      if (chips[3]) chips[3].classList.add('is-in');
+      if (xp) xp.style.setProperty('--p', '0.12');
+      const lvl = el.querySelector('[data-gm-lvl]');
+      if (lvl) { lvl.classList.remove('is-pop'); void lvl.offsetWidth; lvl.classList.add('is-pop'); }
+      await api.wait(4200);
+    },
+  };
+
   /* ---- controlador ---- */
   function createController(el) {
     const names = el.dataset.scene.trim().split(/\s+/).filter((n) => recipes[n]);
