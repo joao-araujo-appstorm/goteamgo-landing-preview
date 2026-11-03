@@ -1302,36 +1302,145 @@
     },
   };
 
-  // Jogo: os eventos aparecem em sequência (pontos, ranking, submeta), a medalha desbloqueia com raios
-  // e confete e a barra de XP enche até o nível 13.
-  recipes.game = {
-    reset: 'fade',
-    arm(el) {
-      el.querySelectorAll('[data-chip]').forEach((c) => c.classList.remove('is-in'));
-      const card = el.querySelector('.gm-card');
-      if (card) { card.classList.add('is-locked'); card.classList.remove('is-unlock', 'is-burst'); }
-      const xp = el.querySelector('[data-gm-xp]');
-      if (xp) xp.style.setProperty('--p', '0.82');
-    },
-    async play(api) {
-      const { el } = api;
-      if (!api.entrance) { await api.wait(2600); return; }
-      const chips = [...el.querySelectorAll('[data-chip]')];
-      await api.wait(500);
-      for (const c of chips.slice(0, 3)) { c.classList.add('is-in'); await api.wait(850); }
-      const card = el.querySelector('.gm-card');
-      if (card) { card.classList.remove('is-locked'); card.classList.add('is-unlock', 'is-burst'); }
-      await api.wait(900);
-      const xp = el.querySelector('[data-gm-xp]');
-      if (xp) xp.style.setProperty('--p', '1');
-      await api.wait(700);
-      if (chips[3]) chips[3].classList.add('is-in');
-      if (xp) xp.style.setProperty('--p', '0.12');
-      const lvl = el.querySelector('[data-gm-lvl]');
-      if (lvl) { lvl.classList.remove('is-pop'); void lvl.offsetWidth; lvl.classList.add('is-pop'); }
-      await api.wait(4200);
-    },
-  };
+  // Minijogo da versão "Para você": cada toque em "Postar treino" soma os pontos da modalidade, enche o
+  // anel do nível, mexe no ranking e libera medalhas. Se ninguém tocar, ele joga uma rodada sozinho.
+  function initGame() {
+    const board = document.querySelector('[data-game]');
+    if (!board) return;
+    const $ = (s) => board.querySelector(s);
+    const bar = $('[data-gb-ring]'), ring = $('.gb-ring'), lvlEl = $('[data-gb-lvl]'), ligaEl = $('[data-gb-liga]');
+    const ptsEl = $('[data-gb-pts]'), nextEl = $('[data-gb-next]'), meEl = $('[data-gb-mept]'), wonEl = $('[data-gb-won]');
+    const btn = $('[data-gb-post]'), again = $('[data-gb-reset]'), toasts = $('[data-gb-toasts]'), live = $('[data-gb-live]'), burstEl = $('[data-gb-burst]');
+    const mods = [...board.querySelectorAll('[data-gb-mod]')];
+    const rows = [...board.querySelectorAll('[data-gb-row]')];
+    const me = rows.find((r) => r.hasAttribute('data-me'));
+    const LIGAS = ['Iniciante', 'Consistente', 'Atleta', 'Competidor', 'Elite', 'Maratonista Profissional'];
+    const MEDALS = { 2: '10 km na semana', 4: '100 km no mês' };
+    const COLORS = ['#f4b400', '#ffd36a', '#2de0e7', '#0ac5cc', '#ff6b8a', '#9fe9ec'];
+    const fmt = (n) => new Intl.NumberFormat(LANG).format(n);
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    // tabela de exemplo: o nível 12 vai de 2.000 a 2.200 e cada nível pede 20 pontos a mais que o anterior
+    const levelOf = (p) => { let lvl = 12, start = 2000, w = 200; while (p >= start + w) { start += w; w += 20; lvl += 1; } return { lvl, start, end: start + w }; };
+    rows.forEach((r) => { r.dataset.start = r.dataset.pts; });
+    let pts = 2140, posts = 0, add = 57, touched = false, inView = false, demoTimer = 0, demoDone = false;
+
+    const order = () => {
+      const sorted = [...rows].sort((a, b) => Number(b.dataset.pts) - Number(a.dataset.pts));
+      sorted.forEach((r, i) => { r.style.setProperty('--i', i); r.querySelector('i').textContent = `${i + 1}º`; });
+      return sorted.indexOf(me) + 1;
+    };
+    const paint = () => {
+      const L = levelOf(pts);
+      bar.style.strokeDashoffset = String(100 - Math.round(((pts - L.start) / (L.end - L.start)) * 100));
+      const liga = Math.min(6, Math.ceil(L.lvl / 10));
+      lvlEl.textContent = L.lvl;
+      ligaEl.textContent = `Liga ${liga} • ${LIGAS[liga - 1]}`;
+      ptsEl.textContent = fmt(pts);
+      nextEl.textContent = fmt(L.end);
+      meEl.textContent = fmt(pts);
+      me.dataset.pts = pts;
+      return L.lvl;
+    };
+    const toast = (title, text) => {
+      const t = document.createElement('div');
+      t.className = 'gb-toast';
+      t.innerHTML = '<span class="gb-toast__logo"><svg><use href="#logo-mark"/></svg></span><span><b></b><small></small></span>';
+      t.querySelector('b').textContent = title;
+      t.querySelector('small').textContent = text;
+      toasts.prepend(t);
+      while (toasts.children.length > 2) toasts.lastElementChild.remove();
+      setTimeout(() => { t.classList.add('is-out'); setTimeout(() => t.remove(), 400); }, 2600);
+    };
+    const burst = () => {
+      if (RM.matches) return;
+      burstEl.innerHTML = Array.from({ length: 18 }, (_, i) => {
+        const a = (i / 18) * Math.PI * 2;
+        const d = 110 + (i % 3) * 30;
+        return `<i style="--x:${Math.round(Math.cos(a) * d)}px;--y:${Math.round(Math.sin(a) * d * 0.8)}px;--r:${(i * 67) % 360}deg;--k:${COLORS[i % 6]}"></i>`;
+      }).join('');
+      setTimeout(() => { burstEl.innerHTML = ''; }, 1400);
+    };
+    const float = (n) => {
+      if (RM.matches) return;
+      const f = document.createElement('span');
+      f.className = 'gb-float';
+      f.textContent = `+${n}`;
+      btn.parentNode.appendChild(f);
+      setTimeout(() => f.remove(), 1200);
+    };
+    const press = () => { btn.classList.add('is-press'); setTimeout(() => btn.classList.remove('is-press'), 160); };
+    const select = (k) => { add = Number(mods[k].dataset.gbMod); mods.forEach((m, i) => m.setAttribute('aria-pressed', String(i === k))); };
+
+    const post = () => {
+      const oldPts = pts;
+      const oldLvl = levelOf(pts).lvl;
+      const oldRank = order();
+      pts += add;
+      posts += 1;
+      const lvl = paint();
+      const rank = order();
+      const said = [`Mais ${add} pontos.`];
+      float(add);
+      if (lvl > oldLvl) {
+        ring.classList.remove('is-up'); void ring.offsetWidth; ring.classList.add('is-up');
+        burst();
+        toast(`Subiu para o nível ${lvl}`, ligaEl.textContent);
+        said.push(`Nível ${lvl}.`);
+      }
+      if (rank < oldRank) {
+        const passed = rows.filter((r) => r !== me && Number(r.dataset.pts) >= oldPts && Number(r.dataset.pts) < pts).map((r) => r.querySelector('b').textContent);
+        me.classList.toggle('is-top', rank === 1);
+        if (rank === 1) burst();
+        toast(rank === 1 ? '1º no ranking do desafio' : `Subiu para ${rank}º no ranking`, `Você passou ${passed.join(' e ')}`);
+        said.push(`${rank}º no ranking.`);
+      }
+      const medal = MEDALS[posts];
+      if (medal) {
+        const m = board.querySelector(`[data-gb-medal="${posts}"]`);
+        if (m) m.classList.add('is-won', 'is-new');
+        wonEl.textContent = String(board.querySelectorAll('.gb-medal.is-won').length);
+        toast('Parabéns, você conquistou uma medalha!', `Você conquistou a(s) medalha(s): ${medal}`);
+        said.push(`Medalha ${medal}.`);
+      }
+      live.textContent = said.join(' ');
+      if (posts >= 4) again.hidden = false;
+    };
+    const restart = () => {
+      pts = 2140; posts = 0;
+      rows.forEach((r) => { r.dataset.pts = r.dataset.start; });
+      board.querySelectorAll('[data-gb-medal]').forEach((m) => m.classList.remove('is-won', 'is-new'));
+      wonEl.textContent = '2';
+      me.classList.remove('is-top');
+      toasts.innerHTML = '';
+      paint(); order();
+      again.hidden = true;
+    };
+    const stopDemo = () => { touched = true; clearTimeout(demoTimer); btn.classList.remove('is-idle'); };
+
+    btn.addEventListener('click', (e) => { if (e.isTrusted) stopDemo(); press(); post(); });
+    mods.forEach((m, k) => m.addEventListener('click', (e) => { if (e.isTrusted) stopDemo(); select(k); }));
+    again.addEventListener('click', () => { restart(); select(0); btn.focus(); });
+
+    // uma rodada de demonstração quando o tabuleiro aparece e ninguém tocou: corrida, corrida, pedal, corrida
+    const demo = async () => {
+      demoDone = true;
+      btn.classList.remove('is-idle');
+      for (const k of [0, 0, 1, 0]) {
+        if (touched || !inView || root.classList.contains('is-still')) return;
+        select(k); press(); post();
+        await sleep(1700);
+      }
+      await sleep(2600);
+      if (!touched) { restart(); select(0); btn.classList.add('is-idle'); }
+    };
+    if (hasIO && !RM.matches) {
+      new IntersectionObserver(([e]) => {
+        inView = e.isIntersecting;
+        clearTimeout(demoTimer);
+        if (inView && !touched && !demoDone) demoTimer = setTimeout(demo, 1600);
+      }, { threshold: 0.45 }).observe(board);
+    }
+  }
 
   /* ---- controlador ---- */
   function createController(el) {
@@ -1457,6 +1566,7 @@
 
   initNav();
   initAudience();
+  initGame();
   initReveal();
   initTour();
   initBilling();
