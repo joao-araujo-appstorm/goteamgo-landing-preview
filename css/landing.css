@@ -2090,8 +2090,6 @@ html:not([data-aud="empresa"]) #produto .rail { border-inline: 0; }
 .tour--feats .chapter__head { max-width: none; padding: 0; }
 .tour--feats .chapter__stage { padding: 8px 0; overflow: visible; border-top: 0; background: none; }
 .tour--feats .h3 { font-size: clamp(1.625rem, 2.4vw, 2.25rem); line-height: 1.12; }
-.feat::before { content: attr(data-n); position: absolute; right: 28px; top: -14px; z-index: -1; font-family: var(--font-display); font-size: clamp(120px, 14vw, 200px); font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--feat-ink); opacity: 0.07; }
-.feat:nth-child(even)::before { right: auto; left: 28px; }
 .feat__eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 5px 14px 5px 5px; border-radius: 999px; background: #fff; color: var(--feat-ink); font-size: 0.8125rem; font-weight: 600; box-shadow: 0 1px 2px rgb(11 13 24 / 0.06), 0 0 0 1px rgb(11 13 24 / 0.04); }
 .feat__eyebrow i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--feat-ink); color: #fff; }
 .feat__eyebrow .i { width: 14px; height: 14px; }
@@ -2110,8 +2108,6 @@ html:not([data-aud="empresa"]) #produto .rail { border-inline: 0; }
 }
 @media (max-width: 560px) {
   .tour--feats .chapter { padding: 26px 16px 20px; border-radius: 28px; }
-  .feat::before { right: 14px; font-size: 104px; }
-  .feat:nth-child(even)::before { left: auto; right: 14px; }
 }
 
 /* passos da versão para você: número em destaque, cartão claro que sobe no hover e linha ligando os três */
