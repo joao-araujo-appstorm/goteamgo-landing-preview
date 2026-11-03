@@ -283,8 +283,9 @@ sub { position: relative; top: 0.22em; font-size: 0.62em; line-height: 0; vertic
   transition: border-color 0.25s, background-color 0.3s, color 0.3s;
 }
 .nav__inner { height: 100%; display: flex; align-items: center; gap: 28px; }
-.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-stretch: 118%; font-size: 1.125rem; letter-spacing: -0.02em; }
-.brand__mark { width: 22px; height: 22px; flex: none; }
+/* logo como o oficial: símbolo e nome em teal, nome em Poppins SemiBold com letras espaçadas (0,15 em) */
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--brand); font-family: var(--font-app); font-weight: 600; font-size: 1.0625rem; letter-spacing: 0.15em; margin-right: -0.15em; }
+.brand__mark { width: 24px; height: 24px; flex: none; }
 .nav__links { display: flex; gap: 2px; }
 .nav__links a {
   padding: 7px 12px; border-radius: 999px;
@@ -353,7 +354,7 @@ html.menu-open { overflow: hidden; }
 /* celular pequeno: logo, botão e menu cabem inteiros na barra; abaixo de 360 px o botão diz só "Agendar" */
 .lbl-tiny { display: none; }
 .nav__inner { min-width: 0; overflow-x: clip; }
-@media (max-width: 480px) { .brand { font-size: 1.0625rem; gap: 8px; } .nav__actions .btn { padding: 0 12px; } .nav__toggle { width: 40px; height: 40px; margin-left: 0; } }
+@media (max-width: 480px) { .brand { font-size: 0.9375rem; gap: 8px; letter-spacing: 0.13em; margin-right: -0.13em; } .nav__actions .btn { padding: 0 12px; } .nav__toggle { width: 40px; height: 40px; margin-left: 0; } }
 @media (max-width: 359px) { .nav__inner { gap: 10px; } .lbl-short { display: none; } .lbl-tiny { display: inline; } .nav__actions .btn { padding: 0 10px; font-size: 0.8125rem; } }
 
 /* ---------- Hero ---------- */
