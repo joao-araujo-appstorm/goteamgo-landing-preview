@@ -220,18 +220,21 @@ return [...word.children];
 letters(words[k]);
 setInterval(() => {
 if (document.hidden || !visible || RM.matches || root.classList.contains('is-still')) return;
-const out = [...word.children];
+const ghost = word.cloneNode(true);
+ghost.className = 'rotator__word rotator__ghost';
+ghost.setAttribute('aria-hidden', 'true');
+rot.appendChild(ghost);
+const out = [...ghost.children];
 out.forEach((c, i) => c.animate([{ transform: 'none', opacity: 1 }, { transform: 'translateY(-0.7em)', opacity: 0 }],
-{ duration: 240, delay: i * 14, easing: 'ease-in', fill: 'forwards' }));
-setTimeout(() => {
+{ duration: 230, delay: i * 10, easing: 'ease-in', fill: 'forwards' }));
+setTimeout(() => ghost.remove(), 260 + out.length * 10);
 k = (k + 1) % words.length;
 rot.style.width = `${widths[words[k]]}em`;
 rot.classList.remove('is-swap');
 void rot.offsetWidth;
 rot.classList.add('is-swap');
 letters(words[k]).forEach((c, i) => c.animate([{ transform: 'translateY(0.8em)', opacity: 0 }, { transform: 'none', opacity: 1 }],
-{ duration: 520, delay: i * 24, easing: EASE, fill: 'backwards' }));
-}, 240 + out.length * 14);
+{ duration: 520, delay: 140 + i * 24, easing: EASE, fill: 'backwards' }));
 }, 2600);
 });
 }
