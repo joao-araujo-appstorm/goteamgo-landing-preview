@@ -123,39 +123,8 @@ setCurrent(decodeURIComponent(links[0].hash.slice(1)));
 });
 }
 function initAudience() {
-const links = [...document.querySelectorAll('[data-aud-link]')];
-if (!links.length) return;
-const TITLES = { empresa: document.title, voce: t('GoTeamGo · Desafios, duelos X1 e torneios para quem treina', 'GoTeamGo · Challenges, X1 duels and tournaments for people who train') };
-const langLinks = [...document.querySelectorAll('[data-lang-link]')];
-const mark = () => {
-links.forEach((a) => {
-if (a.dataset.audLink === root.dataset.aud) a.setAttribute('aria-current', 'true');
-else a.removeAttribute('aria-current');
-});
-langLinks.forEach((a) => { a.hash = root.dataset.aud === 'voce' ? '#voce' : ''; });
-};
-const set = (aud, push) => {
-aud = aud === 'voce' ? 'voce' : 'empresa';
-try { sessionStorage.setItem('gtg-aud', aud); } catch (e) { /* sem armazenamento: só não lembra */ }
-if (push) history.pushState(null, '', aud === 'voce' ? '#voce' : location.pathname + location.search);
-if (root.dataset.aud === aud) return;
-root.dataset.aud = aud;
-document.title = TITLES[aud];
-mark();
-document.dispatchEvent(new CustomEvent('landing:audience'));
-};
-if (root.dataset.aud !== 'voce') root.dataset.aud = 'empresa';
-document.title = TITLES[root.dataset.aud];
-mark();
-links.forEach((a) => a.addEventListener('click', (e) => {
-e.preventDefault();
-set(a.dataset.audLink, true);
-if (!a.closest('.hero')) requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: RM.matches ? 'auto' : 'smooth' }));
-}));
-addEventListener('popstate', () => {
-const h = location.hash;
-if (h === '#voce') set('voce', false);
-else if (h === '#empresas' || !h) set('empresa', false);
+document.querySelectorAll('[data-aud-link]').forEach((a) => {
+if (a.dataset.audLink === root.dataset.aud) a.setAttribute('aria-current', 'page');
 });
 }
 function initBilling() {
@@ -836,6 +805,104 @@ if (card) appear(card, 10, 520);
 await api.wait(2400);
 if (push) push.classList.remove('is-shown');
 await api.wait(2600);
+},
+};
+recipes.quiz = {
+reset: 'fade',
+arm(el) {
+el.dataset.qz = 'play';
+const q = (s) => el.querySelector(s);
+if (q('[data-qz-time]')) q('[data-qz-time]').textContent = '20';
+if (q('[data-qz-secs]')) q('[data-qz-secs]').textContent = '20 s';
+if (q('[data-qz-answers]')) q('[data-qz-answers]').textContent = '0';
+q('.qz-timer')?.style.setProperty('--p', '1');
+q('.qz-bar')?.style.setProperty('--p', '1');
+},
+async play(api) {
+const { el } = api;
+if (!api.entrance) { await api.wait(2600); return; }
+const q = (s) => el.querySelector(s);
+const time = q('[data-qz-time]'), secs = q('[data-qz-secs]'), answers = q('[data-qz-answers]');
+const ring = q('.qz-timer'), bar = q('.qz-bar');
+let s = 20;
+const tick = (a) => {
+s -= 1;
+time.textContent = String(s);
+secs.textContent = `${s} s`;
+ring.style.setProperty('--p', String(s / 20));
+bar.style.setProperty('--p', String(s / 20));
+if (a != null) answers.textContent = String(a);
+};
+await api.wait(700);
+for (const a of [1, 2, 3, 5, 5, 6]) { await api.wait(560); tick(a); }
+const btn = q('.qz-btn.qz-b');
+await cursorTo(api, btn);
+await press(api, btn);
+el.dataset.qz = 'sent';
+const sent = q('[data-show="sent"]');
+if (sent) appear(sent, 8, 380);
+for (const a of [7, 8]) { await api.wait(620); tick(a); }
+await api.wait(500);
+delete el.dataset.qz;
+const res = q('[data-show="reveal"]');
+if (res) appear(res, 10, 480);
+const gain = q('[data-qz-gain]');
+if (gain) await countTo(api, gain, 850, 1100);
+await api.wait(3600);
+},
+};
+recipes.missao = {
+reset: 'fade',
+arm(el) {
+el.querySelector('[data-pick]')?.classList.remove('is-on');
+const fb = el.querySelector('[data-fb]');
+if (fb) fb.hidden = true;
+swapBefore(el);
+const r = el.querySelector('[data-ms-r]');
+if (r) r.dataset.state = 'before';
+},
+async play(api) {
+const { el } = api;
+if (!api.entrance) { await api.wait(2600); return; }
+await api.wait(900);
+const pick = el.querySelector('[data-pick]');
+await cursorTo(api, pick);
+pick.classList.add('is-on');
+await api.wait(500);
+const btn = el.querySelector('[data-ms-btn]');
+await cursorTo(api, btn);
+await press(api, btn);
+const fb = el.querySelector('[data-fb]');
+fb.hidden = false;
+appear(fb, 6, 420);
+swapAfter(el);
+await api.wait(1300);
+const r = el.querySelector('[data-ms-r]');
+r.dataset.state = 'after';
+const body = r.querySelector('.ph-body[data-show="after"]');
+if (body) appear(body, 10, 520);
+const score = r.querySelector('[data-ms-score]');
+if (score) await countTo(api, score, 80, 1000);
+await api.wait(3800);
+},
+};
+recipes.winphone = {
+reset: 'fade',
+arm(el) {
+const p = el.querySelector('[data-win-phone]');
+if (p) p.dataset.state = 'before';
+},
+async play(api) {
+const { el } = api;
+if (!api.entrance) { await api.wait(2600); return; }
+await api.wait(4600);
+const p = el.querySelector('[data-win-phone]');
+p.dataset.state = 'after';
+const won = p.querySelector('[data-show="after"]');
+if (won) appear(won, 12, 560);
+const sheet = p.querySelector('.sx-sheet');
+if (sheet) sheet.animate([{ transform: 'translateY(100%)' }, { transform: 'none' }], { duration: 640, delay: 450, easing: EASE, fill: 'backwards' });
+await api.wait(3200);
 },
 };
 recipes.draw = {
