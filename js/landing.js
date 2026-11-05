@@ -1402,13 +1402,55 @@ a.addEventListener('click', (e) => {
 e.preventDefault();
 const f = document.createElement('iframe');
 f.src = `https://www.youtube-nocookie.com/embed/${a.dataset.video}?autoplay=1&rel=0&modestbranding=1`;
-f.title = t('Conheça o GoTeamGo | Empresas', 'Meet GoTeamGo | Companies (in Portuguese)');
+f.title = t('Veja como a gamificação pode transformar a sua empresa | GoTeamGo', 'See how gamification can transform your company | GoTeamGo (in Portuguese)');
 f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
 f.allowFullscreen = true;
 f.referrerPolicy = 'strict-origin-when-cross-origin';
 a.replaceWith(f);
 f.focus();
 });
+});
+}
+function initConsent() {
+const tags = (document.querySelector('meta[name="gtg-tags"]')?.content || '').split(/\s+/).filter(Boolean);
+const box = document.querySelector('[data-consent]');
+if (!tags.length || !box) return;
+window.dataLayer = window.dataLayer || [];
+const gtag = window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+let loaded = false;
+const load = () => {
+if (loaded) return;
+loaded = true;
+gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' });
+gtag('js', new Date());
+tags.forEach((id) => gtag('config', id));
+const s = document.createElement('script');
+s.async = true;
+s.src = 'https://www.googletagmanager.com/gtag/js?id=' + tags[0];
+document.head.appendChild(s);
+};
+const show = (on) => { box.hidden = !on; root.classList.toggle('consent-open', on); };
+const choose = (v) => {
+try { localStorage.setItem('gtg-consent', v); } catch (e) { /* sem armazenamento: pergunta de novo na próxima visita */ }
+show(false);
+if (v === 'granted') load();
+};
+let saved = null;
+try { saved = localStorage.getItem('gtg-consent'); } catch (e) { /* idem */ }
+if (saved === 'granted') load();
+else if (saved !== 'denied') show(true);
+box.querySelector('[data-consent-yes]').addEventListener('click', () => choose('granted'));
+box.querySelector('[data-consent-no]').addEventListener('click', () => choose('denied'));
+document.querySelectorAll('[data-consent-open]').forEach((b) => {
+b.hidden = false;
+b.addEventListener('click', () => show(true));
+});
+document.addEventListener('click', (e) => {
+const a = e.target.closest('a[data-track]');
+if (!a || !loaded) return;
+const lead = /wa\.me|mailto:/.test(a.getAttribute('href') || '');
+gtag('event', lead ? 'generate_lead' : 'cta_click', { cta: a.dataset.track, link_url: a.href });
 });
 }
 function initWhatsApp() {
@@ -1544,6 +1586,7 @@ initAudience();
 initGame();
 initVideo();
 initWhatsApp();
+initConsent();
 initReveal();
 initTour();
 initBilling();
